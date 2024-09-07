@@ -1,10 +1,17 @@
 import TopNavBar from '@/components/TopNavBar/TopNavBar'
 import DynamicZone from '@/components/DynamicZone/DynamicZone'
-import { BlogsPageComponentMap, globalComponentMap } from '@/utilities/components-map'
+import { caseStudyDetailPageComponentMap, globalComponentMap } from '@/utilities/components-map'
 import { GetData } from '@/utilities/get-components-data'
 
-export default async function BlogsPage() {
+interface Params {
+  params: {
+    id: string
+  }
+}
 
+export default async function CaseStudyDetailPage({ params }: Params) {
+  const { id } = params
+  const contentType = `case-studies/${id}`
   const query = {
     populate: {
       components: {
@@ -12,19 +19,17 @@ export default async function BlogsPage() {
       }
     }
   }
-  const contentType = "all-blog"
   const renderConfig = {
     next: { revalidate: 60 }
   }
-  const blogsData = await GetData(query, contentType, renderConfig);
-
+  const caseStudyDetailData = await GetData(query, contentType, renderConfig);
   return (
     <div className='w-screen'>
       <TopNavBar />
-      {blogsData && (
+      {caseStudyDetailData && (
         <DynamicZone
-          content={blogsData}
-          pageComponentMap={BlogsPageComponentMap}
+          content={caseStudyDetailData}
+          pageComponentMap={caseStudyDetailPageComponentMap}
           globalComponentMap={globalComponentMap}
         />
       )}

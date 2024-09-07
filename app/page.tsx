@@ -1,7 +1,7 @@
 import TopNavBar from '@/components/TopNavBar/TopNavBar'
 import DynamicZone from '@/components/DynamicZone/DynamicZone'
 import { homePageComponentMap, globalComponentMap } from '@/utilities/components-map'
-import { queryPopulate } from '@/utilities/query-populate'
+import { GetData } from '@/utilities/get-components-data'
 
 export default async function HomePage() {
   const contentType = "home";
@@ -25,7 +25,11 @@ export default async function HomePage() {
     },
   };
 
-  const homeData = await GetData(query, contentType);
+  const renderConfig = {
+    next: { revalidate: 60 }
+  }
+
+  const homeData = await GetData(query, contentType, renderConfig);
 
   return (
     <div className='w-screen'>
@@ -39,22 +43,4 @@ export default async function HomePage() {
       )}
     </div>
   );
-}
-
-async function GetData(query: {}, contentType: string) {
-  const url = queryPopulate(query, contentType);
-  const response = await fetch(url, {
-    next: { revalidate: 5 }
-  });
-  if (!response.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  const data = await response.json();
-  let components = data.data.attributes.components;
-  for (let i = 0; i < components.length; i++) {
-    const name = components[i].__component;
-    const componentName = name.split(".")[1];
-    components[i].__component = componentName;
-  }
-  return components;
 }

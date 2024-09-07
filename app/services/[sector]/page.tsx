@@ -1,9 +1,18 @@
 import TopNavBar from '@/components/TopNavBar/TopNavBar'
 import DynamicZone from '@/components/DynamicZone/DynamicZone'
-import { OurTeamPageComponentMap, globalComponentMap } from '@/utilities/components-map'
+import { serviceSectorPageComponentMap, globalComponentMap } from '@/utilities/components-map'
 import { GetData } from '@/utilities/get-components-data'
 
-export default async function OurTeamPage() {
+interface Params {
+  params: {
+    sector: string
+  }
+}
+
+export default async function ServiceSectorPage({ params }: Params) {
+  
+  const { sector } = params
+  const contentType = `${sector}`
   const query = {
     populate: {
       components: {
@@ -11,28 +20,24 @@ export default async function OurTeamPage() {
           heroBackground: "*",
           mobileViewBackground: "*",
           card: {
-            populate: ["icon", "image"]
+            populate: ["image", "icon"]
           },
           image: "*",
-          images: "*",
-  
         },
       }
     }
   }
-  const contentType = "our-team"
   const renderConfig = {
     next: { revalidate: 60 }
   }
-  const ourTeamData = await GetData(query, contentType, renderConfig)
-
+  const serviceSectorData = await GetData(query, contentType, renderConfig);
   return (
     <div className='w-screen'>
       <TopNavBar />
-      {ourTeamData && (
+      {serviceSectorData && (
         <DynamicZone
-          content={ourTeamData}
-          pageComponentMap={OurTeamPageComponentMap}
+          content={serviceSectorData}
+          pageComponentMap={serviceSectorPageComponentMap}
           globalComponentMap={globalComponentMap}
         />
       )}

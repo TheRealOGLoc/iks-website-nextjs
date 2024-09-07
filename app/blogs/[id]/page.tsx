@@ -1,10 +1,17 @@
 import TopNavBar from '@/components/TopNavBar/TopNavBar'
 import DynamicZone from '@/components/DynamicZone/DynamicZone'
-import { BlogsPageComponentMap, globalComponentMap } from '@/utilities/components-map'
+import { blogDetailPageComponentMap, globalComponentMap } from '@/utilities/components-map'
 import { GetData } from '@/utilities/get-components-data'
 
-export default async function BlogsPage() {
+interface Params {
+  params: {
+    id: string
+  }
+}
 
+export default async function BlogDetailPage({ params }: Params) {
+  const { id } = params
+  const contentType = `blogs/${id}`
   const query = {
     populate: {
       components: {
@@ -12,19 +19,19 @@ export default async function BlogsPage() {
       }
     }
   }
-  const contentType = "all-blog"
+
   const renderConfig = {
     next: { revalidate: 60 }
   }
-  const blogsData = await GetData(query, contentType, renderConfig);
+  const blogDetailData = await GetData(query, contentType, renderConfig);
 
   return (
     <div className='w-screen'>
       <TopNavBar />
-      {blogsData && (
+      {blogDetailData && (
         <DynamicZone
-          content={blogsData}
-          pageComponentMap={BlogsPageComponentMap}
+          content={blogDetailData}
+          pageComponentMap={blogDetailPageComponentMap}
           globalComponentMap={globalComponentMap}
         />
       )}

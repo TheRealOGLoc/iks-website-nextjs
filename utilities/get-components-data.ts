@@ -1,23 +1,27 @@
 import { queryPopulate } from "./query-populate"
 
-export async function GetData(query: {}, contentType: string, isr?: {}) {
-  const url = queryPopulate(query, contentType)
-  const data = await fetch(url, isr)
-  const response = await data.json()
-  let components = response.data.attributes.components
+export async function GetData(query: {}, contentType: string, config?: {}) {
+  const url = queryPopulate(query, contentType);
+  const response = await fetch(url, config);
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data = await response.json();
+  let components = data.data.attributes.components;
   for (let i = 0; i < components.length; i++) {
-    const name = components[i].__component
-    const componentName = name.split(".")[1]
-    components[i].__component = componentName
+    const name = components[i].__component;
+    const componentName = name.split(".")[1];
+    components[i].__component = componentName;
   }
-  return response
+  return components;
 }
 
-export async function GetCaseStudiesData(query: {}, contentType: string) {
+export async function GetCaseStudiesData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const response = await axios.get(url);
-  let blogsData = response.data.data;
+  const data = await fetch(url, config)
+  const response = await data.json()
+  let blogsData = response.data;
   let blogs: any[] = [];
 
   for (let i = 0; i < blogsData.length; i++) {
@@ -35,11 +39,12 @@ export async function GetCaseStudiesData(query: {}, contentType: string) {
   return blogs.slice(0, 3);
 }
 
-export async function GetBlogsData(query: {}, contentType: string) {
+export async function GetBlogsData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const response = await axios.get(url);
-  let blogsData = response.data.data;
+  const data = await fetch(url, config)
+  const response = await data.json()
+  let blogsData = response.data;
   let blogs: any[] = [];
 
   for (let i = 0; i < blogsData.length; i++) {
@@ -55,15 +60,16 @@ export async function GetBlogsData(query: {}, contentType: string) {
 
   blogs = sortBlogsByPostTime(blogs);
   blogs = modifyBlogs(blogs);
-  
+
   return blogs.slice(0, 3);
 }
 
-export async function GetAllCaseStudiesData(query: {}, contentType: string) {
+export async function GetAllCaseStudiesData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const response = await axios.get(url);
-  let blogsData = response.data.data;
+  const data = await fetch(url, config)
+  const response = await data.json()
+  let blogsData = response.data;
   let blogs: any[] = [];
 
   for (let i = 0; i < blogsData.length; i++) {
@@ -81,11 +87,12 @@ export async function GetAllCaseStudiesData(query: {}, contentType: string) {
   return blogs;
 }
 
-export async function GetAllBlogsData(query: {}, contentType: string) {
+export async function GetAllBlogsData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const response = await axios.get(url);
-  let blogsData = response.data.data;
+  const data = await fetch(url, config)
+  const response = await data.json()
+  let blogsData = response.data;
   let blogs: any[] = [];
 
   for (let i = 0; i < blogsData.length; i++) {
