@@ -16,6 +16,24 @@ export async function GetData(query: {}, contentType: string, config?: {}) {
   return components;
 }
 
+export async function GetSeoData(query:{}, contentType: string, config?:{}) {
+  const SEOComponentName = "global-elements.seo"
+  const url = queryPopulate(query, contentType);
+  const response = await fetch(url, config);
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data = await response.json();
+  let components = data.data.attributes.components;
+  for (let i = 0; i < components.length; i++) {
+    const name = components[i].__component;
+    if (name === SEOComponentName) {
+      return components[i]
+    }
+  }
+  return components;
+}
+
 export async function GetCaseStudiesData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
