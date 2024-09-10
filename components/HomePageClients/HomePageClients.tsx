@@ -8,18 +8,18 @@ interface HomePageClientsProps {
     titleRightPart: string;
     description: string;
     firstRow: {
-        data: { attributes: { url: string; name: string } }[];
+      data: { attributes: { url: string; name: string } }[];
     };
     secondRow: {
-        data: { attributes: { url: string; name: string } }[];
+      data: { attributes: { url: string; name: string } }[];
     };
     [key: string]: any;
   };
 }
 
 export default function HomePageClients({ componentData }: HomePageClientsProps) {
-  const [firstIndex, setFirstIndex] = useState(1);
-  const [secondIndex, setSecondIndex] = useState(1);
+  const [firstIndex, setFirstIndex] = useState(1); // Start at 1st position
+  const [secondIndex, setSecondIndex] = useState(1); // Start at 1st position
   const transitionDuration = 300; // Transition duration in ms
   const slideInterval = 3000; // Slide interval in ms
 
@@ -29,7 +29,7 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
   const firstRow = componentData.firstRow.data;
   const secondRow = componentData.secondRow.data;
 
-  // Function to normalize array length to a multiple of 6 for smoother transitions
+  // Normalize array length to a multiple of 6
   const normalizeArrayLength = (arr: any[], size: number) => {
     const normalizedArray = [...arr];
     while (normalizedArray.length % size !== 0) {
@@ -64,23 +64,23 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
 
   useEffect(() => {
     // Handle first row looping logic
-    if (firstIndex === normalizedFirstRow.length + 1) {
+    if (firstIndex === firstRowCloned.length - 6) {
       setTimeout(() => {
         if (firstRowRef.current) {
           firstRowRef.current.style.transition = "none";
-          setFirstIndex(1); // Reset index instantly
+          setFirstIndex(6); // Reset index to the first cloned element
         }
       }, transitionDuration);
     } else if (firstRowRef.current) {
       firstRowRef.current.style.transition = `transform ${transitionDuration}ms ease-in-out`;
     }
 
-    // Handle second row looping logic
-    if (secondIndex === normalizedSecondRow.length + 1) {
+    // Handle second row looping logic (opposite direction)
+    if (secondIndex === secondRowCloned.length - 6) {
       setTimeout(() => {
         if (secondRowRef.current) {
           secondRowRef.current.style.transition = "none";
-          setSecondIndex(1); // Reset index instantly
+          setSecondIndex(6); // Reset index to the first cloned element
         }
       }, transitionDuration);
     } else if (secondRowRef.current) {
@@ -100,29 +100,39 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
       </div>
 
       <div className="overflow-hidden my-[100px]">
-        {/* First row scrolling right */}
+        {/* First row scrolling right to left */}
         <div
           className="flex mb-4"
           ref={firstRowRef}
           style={{
-            transform: `translateX(-${firstIndex * 16.67}%)`, // Move by 16.67% (1/6 of container)
+            transform: `translateX(-${firstIndex * 33.33}%)`, // Move by 33.33% on mobile, 16.67% on larger screens
           }}
         >
           {firstRowCloned.map((logo, idx) => (
-            <img key={idx} src={logo.attributes.url} alt={logo.attributes.name} className="w-[200px] h-auto" />
+            <img 
+              key={idx} 
+              src={logo.attributes.url} 
+              alt={logo.attributes.name} 
+              className="w-[150px] md:w-[200px] h-auto"  // Adjust size for mobile (150px) and larger screens (200px)
+            />
           ))}
         </div>
 
-        {/* Second row scrolling left */}
+        {/* Second row scrolling left to right */}
         <div
           className="flex"
           ref={secondRowRef}
           style={{
-            transform: `translateX(-${secondIndex * 16.67}%)`, // Move by 16.67% (1/6 of container)
+            transform: `translateX(-${secondIndex * 33.33}%)`, // Move by 33.33% on mobile, 16.67% on larger screens
           }}
         >
           {secondRowCloned.map((logo, idx) => (
-            <img key={idx} src={logo.attributes.url} alt={logo.attributes.name} className="w-[200px] h-auto" />
+            <img 
+              key={idx} 
+              src={logo.attributes.url} 
+              alt={logo.attributes.name} 
+              className="w-[150px] md:w-[200px] h-auto"  // Adjust size for mobile (150px) and larger screens (200px)
+            />
           ))}
         </div>
       </div>

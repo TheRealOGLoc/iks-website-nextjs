@@ -45,10 +45,10 @@ export default function TopNavBar() {
           <Link href="/services" className="group-hover:text-blue-600">
             Services
           </Link>
-          <div className="absolute hidden group-hover:block hover:block bg-white shadow-lg rounded">
-            <Link href="/services/management-consulting" className="block px-4 py-2 hover:bg-gray-100">Management consulting</Link>
-            <Link href="/services/policies-and-procedure" className="block px-4 py-2 hover:bg-gray-100">Policies & Procedures</Link>
-            <Link href="/services/custom-software-solution" className="block px-4 py-2 hover:bg-gray-100">Custom Software Solutions</Link>
+          <div className="absolute left-[] hidden group-hover:block hover:block bg-white shadow-lg rounded w-[250px]">
+            <Link href="/services/management-consulting" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Management consulting</Link>
+            <Link href="/services/policies-and-procedure" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Policies & Procedures</Link>
+            <Link href="/services/custom-software-solution" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Custom Software Solutions</Link>
           </div>
         </div>
 
@@ -56,12 +56,12 @@ export default function TopNavBar() {
           <Link href="/industries" className="group-hover:text-blue-600">
             Industries
           </Link>
-          <div className="absolute hidden group-hover:block hover:block bg-white shadow-lg rounded">
-            <Link href="/industries/beauty-and-aesthetic" className="block px-4 py-2 hover:bg-gray-100">Beauty and Aesthetics</Link>
-            <Link href="/industries/hospitality-and-tourism" className="block px-4 py-2 hover:bg-gray-100">Hospitality</Link>
-            <Link href="/industries/health-and-community-service" className="block px-4 py-2 hover:bg-gray-100">Health and Community Services</Link>
-            <Link href="/industries/retail" className="block px-4 py-2 hover:bg-gray-100">Retail</Link>
-            <Link href="/industries/technology" className="block px-4 py-2 hover:bg-gray-100">Technology</Link>
+          <div className="absolute hidden group-hover:block hover:block bg-white w-[220px] shadow-lg rounded">
+            <Link href="/industries/beauty-and-aesthetic" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Beauty and Aesthetics</Link>
+            <Link href="/industries/hospitality-and-tourism" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Hospitality</Link>
+            <Link href="/industries/health-and-community-service" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Health and Community Services</Link>
+            <Link href="/industries/retail" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Retail</Link>
+            <Link href="/industries/technology" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Technology</Link>
           </div>
         </div>
 
@@ -72,10 +72,10 @@ export default function TopNavBar() {
           <Link href="/about-us" className="group-hover:text-blue-600">
             About Us
           </Link>
-          <div className="absolute hidden group-hover:block hover:block bg-white shadow-lg rounded">
-            <Link href="/about-us" className="block px-4 py-2 hover:bg-gray-100">About Us</Link>
-            <Link href="/our-team" className="block px-4 py-2 hover:bg-gray-100">Our Team</Link>
-            <Link href="/testimonials" className="block px-4 py-2 hover:bg-gray-100">Testimonials</Link>
+          <div className="absolute text-right left-[-45px] hidden group-hover:block hover:block bg-white shadow-lg rounded">
+            <Link href="/about-us" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">About Us</Link>
+            <Link href="/our-team" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Our Team</Link>
+            <Link href="/testimonials" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Testimonials</Link>
           </div>
         </div>
       </div>

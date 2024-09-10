@@ -1,3 +1,4 @@
+import AlignDescription from "./AlignDescription"
 interface HomePageAlignProps {
   componentData: {
     __component: string,
@@ -13,10 +14,12 @@ export default function HomePageAlign({componentData}: HomePageAlignProps) {
     <div className="my-[100px] p-5">
       <div className="text-center">
         <div className="font-semibold text-4xl md:text-5xl poppins-font cyan-blue">
-          {componentData.titleLeftPart} <span className="light-blue">{componentData.titleRightPart}</span>
+          {componentData.titleLeftPart} <span className="light-blue underline">{componentData.titleRightPart}</span>
         </div>
         <div className="inter-font text-xl max-w-[1000px] m-[auto] font-medium my-2">
-          {componentData.description}
+          {componentData.description && 
+            <AlignDescription componentData={componentData} />
+          }
         </div>
       </div>
     </div>
