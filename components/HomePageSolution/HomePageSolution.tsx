@@ -39,6 +39,7 @@ export default function HomePageSolution({ componentData }: HomePageSolutionProp
           <HomePageSolutionCard
             image={data.icon.data.attributes.url}
             text={data.description}
+            index={index}
             key={index}
           />
         ))}

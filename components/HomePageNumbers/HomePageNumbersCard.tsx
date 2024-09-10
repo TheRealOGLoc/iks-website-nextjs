@@ -35,7 +35,7 @@ export default function HomePageNumbersCard({ data, title, text, plusSign }: Hom
       className="w-[350px] md:w-[300px] text-center border-solid border-slate-150 rounded-lg border-[1px] shadow-lg mx-auto my-2 md:m-2 p-5 hover:scale-105 transition ease-in-out"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, delay: 0.5 }}
       ref={showUpRef}
     >
       <div className="poppins-font text-3xl font-semibold light-blue">

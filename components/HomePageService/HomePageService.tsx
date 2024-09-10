@@ -7,6 +7,7 @@ interface HomePageServiceProps {
     titleRightPart: string,
     description: string,
     buttonText: string,
+    buttonUrl: string,
     [key: string]: any
   }
 }
@@ -24,7 +25,7 @@ export default function HomePageService({componentData}: HomePageServiceProps) {
         </div>
       </div>
       <div className="flex flex-col md:flex-row md:justify-between mt-10 cyan-blue px-10">
-        {componentData.card.map((data: any, index: number) => <HomePageServiceCard image={data.icon.data.attributes} mobileViewImage={data.mobileViewImage.data.attributes} title={data.title} text={data.description} buttonText={data.buttonText} key={index} />)}
+        {componentData.card.map((data: any, index: number) => <HomePageServiceCard image={data.icon.data.attributes} mobileViewImage={data.mobileViewImage.data.attributes} title={data.title} text={data.description} buttonText={data.buttonText} buttonUrl={data.buttonUrl} key={index} />)}
       </div>
     </div>
   )

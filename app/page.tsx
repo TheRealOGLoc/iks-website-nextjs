@@ -5,7 +5,7 @@ import { GetData, GetSeoData } from '@/utilities/get-components-data'
 import { GenerateMetaData } from '@/utilities/generate-meta-data'
 import { Metadata } from 'next';
 
-export async function generateMetadata():Promise<Metadata | undefined> {
+export async function generateMetadata():Promise<Metadata | null> {
   const SEOquery = {
     populate: {
       components: {
@@ -25,8 +25,11 @@ export async function generateMetadata():Promise<Metadata | undefined> {
   const homeSEOData = await GetSeoData(SEOquery, contentType);
   // const util = require("util")
   // console.log(util.inspect(homeSEOData, { depth: null }))
-  const metaData = GenerateMetaData(homeSEOData)
-  return metaData
+  if (homeSEOData) {
+    const metaData = GenerateMetaData(homeSEOData)
+    return metaData
+  }
+  return null
 }
 
 const contentType = "home"
@@ -64,7 +67,7 @@ export default async function HomePage() {
   // const util = require("util")
   // console.log(util.inspect(homeData[0], { depth: null }))
   return (
-    <main className='w-screen'>
+    <main className='overflow-hidden'>
       <TopNavBar />
       {homeData && (
         <DynamicZone

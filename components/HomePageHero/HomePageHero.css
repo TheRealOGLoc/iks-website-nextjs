@@ -1,0 +1,85 @@
+.background-animate {
+  position: relative;
+  background-size: cover; /* 默认背景大小 */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* animation: scaleBackgroundImageDesktop 3s ease-in-out forwards; 默认桌面端的缩放动画 */
+}
+
+/* 针对桌面端的动画 */
+@keyframes scaleBackgroundImageDesktop {
+  0% {
+    background-size: cover; /* 桌面端起始大小 */
+  }
+  100% {
+    background-size: 110%; /* 桌面端最终缩放大小 */
+  }
+}
+
+/* 针对移动端的背景图片设置 */
+@media (max-width: 768px) {
+  .background-animate {
+    background-size: 340%; /* 移动端起始大小更大，以确保图片看起来更合适 */
+    animation: scaleBackgroundImageMobile 3s ease-in-out forwards; /* 移动端的缩放动画 */
+  }
+
+  @keyframes scaleBackgroundImageMobile {
+    0% {
+      background-size: 340%; /* mobile view start size */
+    }
+    100% {
+      background-size: 360%; /* mobile view end size */
+    }
+  }
+}
+
+.move-left {
+  width: 100%;
+  animation: MoveLeft 2s ease-in-out forwards;
+}
+
+@keyframes MoveLeft {
+  0% {
+    width: 100%; /* desktop start size */
+  }
+  100% {
+    width: 50%; /* desktop end size */
+  }
+}
+
+
+.uncover-animate {
+  width: 95%;
+  animation: Uncover 2s forwards;
+  opacity: 80%;
+  background-color: white;
+  width: 95%;
+  height: 100%
+}
+
+@keyframes Uncover {
+  0% {
+    width: 95%; /* desktop start size */
+  }
+  100% {
+    width: 0%; /* desktop end size */
+    opacity: 0
+  }
+}
+
+.move-up {
+  margin-top: 20px;
+  opacity: 70%;
+  animation: MoveUp 1s ease-in-out 1s forwards;
+}
+
+@keyframes MoveUp {
+  0% {
+    margin-top: 20px; /* desktop start size */
+    opacity: 70%;
+  }
+  100% {
+    margin-top: 0px; /* desktop end size */
+    opacity: 100%
+  }
+}
