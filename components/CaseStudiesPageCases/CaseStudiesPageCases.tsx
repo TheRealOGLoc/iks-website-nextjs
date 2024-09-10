@@ -1,4 +1,5 @@
 "use client"
+import { useSearchParams } from "next/navigation"
 import { GetAllCaseStudiesData } from "../../utilities/get-components-data"
 import CaseCard from "./CaseCard"
 import { useEffect, useState } from "react"
@@ -22,20 +23,21 @@ const query = {
 
 
 export default function CaseStudiesPageCases({componentData}: CaseStudiesPageCases) {
-  
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("query") ?? ""; 
   const [showCases] = useState<boolean>(componentData.showAllCaseStudies)
   const [casesData, setCaseStudiesData] = useState<[] | null>(null)
 
   useEffect(() => {
     async function getCaseStudies() {
-      const response = await GetAllCaseStudiesData(query, contentType)
+      const response = await GetAllCaseStudiesData(query, contentType, searchQuery)
       console.log(response)
       setCaseStudiesData(response as [])
     }
     if (componentData.showAllCaseStudies) {
       getCaseStudies()
     }
-  }, [])
+  }, [searchQuery])
 
   return (
     <div className="my-10">

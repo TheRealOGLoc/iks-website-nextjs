@@ -35,7 +35,7 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
     if (componentData.showAllBlogs) {
       getBlogs()
     }
-  }, [searchQuery, componentData.showAllBlogs]) // 依赖于 searchQuery 和 showAllBlogs 的变化
+  }, [searchQuery]) 
 
   return (
     <div className="my-10">
