@@ -4,7 +4,6 @@ import { BlogsPageComponentMap, globalComponentMap } from '@/utilities/component
 import { GetData } from '@/utilities/get-components-data'
 
 export default async function BlogsPage() {
-
   const query = {
     populate: {
       components: {

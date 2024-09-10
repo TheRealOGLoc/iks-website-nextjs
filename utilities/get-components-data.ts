@@ -1,6 +1,15 @@
 import { queryPopulate } from "./query-populate"
 
-export async function GetData(query: {}, contentType: string, config?: {}) {
+export async function GetData(query: {[key: string]:any}, contentType: string, config?: {}) {
+  // const util = require("util")
+  // if (searchQuery.length) {
+  //   query.where = {
+  //     $or: [
+  //       { title: { $containsi: searchQuery } },
+  //       { slug: { $containsi: searchQuery } },
+  //     ],
+  //   }
+  // }
   const url = queryPopulate(query, contentType);
   const response = await fetch(url, config);
   if (!response.ok) {
@@ -105,9 +114,20 @@ export async function GetAllCaseStudiesData(query: {}, contentType: string, conf
   return blogs;
 }
 
-export async function GetAllBlogsData(query: {}, contentType: string, config?: {}) {
+export async function GetAllBlogsData(query: {[key: string]:any}, contentType: string, searchQuery: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
+  if (searchQuery.length) {
+    query.filters = {
+      $or: [
+        { title: { $containsi: searchQuery } },
+        { slug: { $containsi: searchQuery } },
+      ],
+    }
+  }
   const url = queryPopulate(query, contentType);
+  console.log(searchQuery)
+  console.log(query)
+  console.log(url)
   const data = await fetch(url, config)
   const response = await data.json()
   let blogsData = response.data;
