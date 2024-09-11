@@ -22,11 +22,9 @@ export async function generateMetadata():Promise<Metadata | null> {
     },
   };
 
-  const homeSEOData = await GetSeoData(SEOquery, contentType);
-  // const util = require("util")
-  // console.log(util.inspect(homeSEOData, { depth: null }))
-  if (homeSEOData) {
-    const metaData = GenerateMetaData(homeSEOData)
+  const SEOData = await GetSeoData(SEOquery, contentType);
+  if (SEOData) {
+    const metaData = GenerateMetaData(SEOData)
     return metaData
   }
   return null

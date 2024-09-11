@@ -31,7 +31,7 @@ export async function GetSeoData(query: {}, contentType: string, config?: {}) {
       return components[i]
     }
   }
-  return components;
+  return null;
 }
 
 export async function GetCaseStudiesData(query: {}, contentType: string, config?: {}) {

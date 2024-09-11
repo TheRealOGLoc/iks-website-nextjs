@@ -1,19 +1,23 @@
 "use client"
 import React, { useState } from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
+import { SendMessage } from '@/utilities/post-email';
+import GetInTouchImage from "@/public/image/GetInTouch.jpg"
 
 interface GetInTouch {
-  componentData: {
-    buttonText: string;
-    [key : string]: any;
-  }
+  buttonText: string;
+  [key: string]: any;
+
 }
 
-export default function GetInTouch({ componentData }: GetInTouch) {
+export default function GetInTouch({ buttonText }: GetInTouch) {
 
   const [openMenu, setOpenMenu] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null) 
-  const googleUrl = "https://goo.gl/maps/XfcxXc8ttaiMrEcm7"
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
+  const [messageSent, setMessageSent] = useState<boolean>(false)
+  const googleUrl = process.env.GOOGLE_MAP_ADDRESS_URL || ""
   const [info, setInfo] = useState({
     name: "",
     companyName: "",
@@ -27,8 +31,17 @@ export default function GetInTouch({ componentData }: GetInTouch) {
   }
 
   const _handleCloseClick = () => {
+    setSuccess(null)
     setError(null)
+    setMessageSent(false)
     setOpenMenu(false)
+    setInfo({
+      name: "",
+      companyName: "",
+      phoneNumber: "",
+      email: "",
+      message: "",
+    })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,8 +56,11 @@ export default function GetInTouch({ componentData }: GetInTouch) {
     return emailRegex.test(email);
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (messageSent) {
+      setSuccess("You have send the message!")
+    }
     if (!info.name.trim() && !info.companyName.trim()) {
       setError("Please provide either your Name or Company Name.");
       return;
@@ -61,7 +77,22 @@ export default function GetInTouch({ componentData }: GetInTouch) {
     }
 
     setError(null);
-    console.log(info);
+
+    try {
+      const response = await SendMessage({ info });
+
+      if (response.status === 200 || response.statusText === "OK") {
+        setMessageSent(true);
+        setSuccess("You have sent the message!");
+        setError(null);
+      } else {
+        setSuccess(null);
+        setError("Failed to send the message.");
+      }
+    } catch (error) {
+      setSuccess(null);
+      setError("Failed to send the message.");
+    }
   }
 
   return (
@@ -69,7 +100,7 @@ export default function GetInTouch({ componentData }: GetInTouch) {
       <button
         onClick={() => _handleOpenClick()}
         className="poppins-font bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
-      >{componentData.buttonText} →</button>
+      >{buttonText} →</button>
 
       {
         openMenu &&
@@ -80,71 +111,72 @@ export default function GetInTouch({ componentData }: GetInTouch) {
               &#x2715; {/* Close button */}
             </button>
             <div className='md:flex md:items-center'>
-              <div className='hidden md:block max-w-[400px] md:h-[700px]'>
-                <img
-                  src={componentData.heroBackground.data.attributes.url}
+              <div className='hidden md:block max-w-[400px] md:h-[750px]'>
+                <Image
+                  src={GetInTouchImage}
                   alt=""
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className=' md:h-[700px] p-[30px] md:p-[80px]'>
+              <div className=' md:h-[750px] p-[30px] md:p-[80px]'>
                 <div>
                   <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
                   <form className="space-y-4 text-black" onSubmit={handleSubmit}>
                     {/* error message */}
                     {error && <div className="text-red-600">{error}</div>}
-                    <input 
-                      type="text" 
-                      name='name' 
-                      placeholder='Name *' 
-                      value={info.name} 
-                      onChange={handleChange} 
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font" 
+                    {success && <div className="text-green-400">{success}</div>}
+                    <input
+                      type="text"
+                      name='name'
+                      placeholder='Name *'
+                      value={info.name}
+                      onChange={handleChange}
+                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
                     />
-                    <input 
-                      type="text" 
-                      name='companyName' 
-                      placeholder='Company Name' 
-                      value={info.companyName} 
-                      onChange={handleChange} 
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font" 
+                    <input
+                      type="text"
+                      name='companyName'
+                      placeholder='Company Name'
+                      value={info.companyName}
+                      onChange={handleChange}
+                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
                     />
-                    <input 
-                      type="text" 
-                      name='phoneNumber' 
-                      placeholder='Phone Number' 
-                      value={info.phoneNumber} 
-                      onChange={handleChange} 
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font" 
+                    <input
+                      type="text"
+                      name='phoneNumber'
+                      placeholder='Phone Number'
+                      value={info.phoneNumber}
+                      onChange={handleChange}
+                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
                     />
-                    <input 
-                      type="email" 
-                      name='email' 
-                      placeholder='Email *' 
-                      value={info.email} 
-                      onChange={handleChange} 
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font" 
+                    <input
+                      type="email"
+                      name='email'
+                      placeholder='Email *'
+                      value={info.email}
+                      onChange={handleChange}
+                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
                     />
-                    <textarea 
-                      name="message" 
-                      placeholder='Please share your requirements or Message us' 
-                      value={info.message} 
-                      onChange={handleChange} 
+                    <textarea
+                      name="message"
+                      placeholder='Please share your requirements or Message us'
+                      value={info.message}
+                      onChange={handleChange}
                       className="w-full p-2 border-[1px] resize-none border-gray-800 poppins-font">
                     </textarea>
-                    <input 
-                      type="submit" 
-                      value={"Submit"} 
-                      className="bg-blue-600 text-white py-2 px-4 cursor-pointer w-[200px]" 
+                    <input
+                      type="submit"
+                      value={"Submit"}
+                      className="bg-blue-600 text-white py-2 px-4 cursor-pointer w-[200px]"
                     />
                   </form>
                 </div>
 
                 <div className='h-[1px] bg-gray-600 mt-5'></div>
 
-                <div className="mt-8 flex flex-col md:flex-row text-black">
-                  <div className="text-center">
+                <div className="mt-3 md:mt-8 flex flex-col md:flex-row text-black">
+                  <div className="hidden md:block text-center">
                     <div className="text-lg font-bold">Find Us</div>
                     <Link className='hover:text-gray-600 transition' href={googleUrl}>
                       <p>SYDNEY, AUSTRALIA</p>

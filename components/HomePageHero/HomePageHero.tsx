@@ -38,7 +38,7 @@ export default function HomePageHero({ componentData }: HomePageHeroProps) {
         >
           {componentData.buttonText} →
         </button> */}
-        <GetInTouch componentData={componentData} />
+        <GetInTouch buttonText={componentData.buttonText} />
       </div>
     </div>
 

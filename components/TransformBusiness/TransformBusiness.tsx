@@ -1,3 +1,5 @@
+import GetInTouch from "../GetInTouch/GetInTouch";
+
 interface HomePageTransformBusinessProps {
   componentData: {
     __component: string;
@@ -5,7 +7,6 @@ interface HomePageTransformBusinessProps {
     titleRightPart: string;
     description: string;
     buttonTextTouch: string;
-    buttonTextExplore: string;
     image: any;
     [key: string]: any;
   };
@@ -35,9 +36,7 @@ export default function TransformBusiness({ componentData }: HomePageTransformBu
           {componentData.description}
         </div>
         <div className="flex mt-6 space-x-4">
-          <button className="text-white bg-[#70B9DF] text-sm md:text-l font-semibold px-4 py-2 md:px-6 md:py-3 rounded-md">
-            {componentData.buttonTextTouch}
-          </button>
+          <GetInTouch buttonText={componentData.buttonTextTouch} />
         </div>
       </div>
     </div>

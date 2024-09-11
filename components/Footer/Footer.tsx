@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Subscribe from "./Subscribe";
 import iksLogo from "@/public/logo/infinikey-logo-dark.png"
 
 interface FooterProps {
@@ -40,16 +41,7 @@ export default function Footer({ componentData }: FooterProps) {
           <p className="text-base font-light my-7 max-w-full md:max-w-[350px]">
             {componentData.companyDescription}
           </p>
-          <div className="flex flex-col">
-            <input
-              type="email"
-              placeholder={componentData.emailPlaceHolder}
-              className="p-3 rounded-full text-gray-900 w-[300px] md:max-w-[350px]"
-            />
-            <button className="mt-4 w-[150px] md:w-[150px] bg-blue-400 text-white py-3 px-4 font-semibold rounded-full hover:bg-blue-500 transition">
-              {componentData.buttonText}
-            </button>
-          </div>
+            <Subscribe componentData={componentData} />
         </div>
 
         {/* Menu Links */}
