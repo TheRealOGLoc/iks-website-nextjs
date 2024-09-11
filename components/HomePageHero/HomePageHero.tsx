@@ -1,4 +1,4 @@
-import HomePageHeroDescription from "./HomePageHeroDescription";
+import HeroDescription from "./HeroDescription";
 import "./HomePageHero.css"
 import GetInTouch from "../GetInTouch/GetInTouch";
 
@@ -32,12 +32,7 @@ export default function HomePageHero({ componentData }: HomePageHeroProps) {
             {componentData.subtitle}
           </h2>
         </div>
-        <HomePageHeroDescription componentData={componentData} />
-        {/* <button
-          className="poppins-font bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
-        >
-          {componentData.buttonText} →
-        </button> */}
+        <HeroDescription componentData={componentData} />
         <GetInTouch buttonText={componentData.buttonText} />
       </div>
     </div>

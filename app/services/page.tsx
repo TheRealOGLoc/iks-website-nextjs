@@ -52,7 +52,7 @@ export default async function ServicePage() {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const serviceData = await GetData(query, contentType, renderConfig);
   return (

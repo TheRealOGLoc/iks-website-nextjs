@@ -99,14 +99,14 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
     <div className='inter-font'>
       <button
         onClick={() => _handleOpenClick()}
-        className="poppins-font bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
+        className="mt-9 md:mt-0 poppins-font bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
       >{buttonText} →</button>
 
       {
         openMenu &&
         <div className="fixed inset-0 z-50 bg-gray-300 bg-opacity-75 md:flex justify-center items-center shadow-lg">
           {/* Full-screen overlay */}
-          <div className="relative bg-white shadow-lg max-w-[1000px] w-full">
+          <div className="relative mt-[50px] md:mt-0 bg-white shadow-lg max-w-[1000px] w-full">
             <button onClick={() => _handleCloseClick()} className="absolute top-4 right-4 text-gray-200 hover:text-gray-900 w-7 h-7 bg-gray-600">
               &#x2715; {/* Close button */}
             </button>
@@ -119,7 +119,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                 />
               </div>
 
-              <div className=' md:h-[750px] p-[30px] md:p-[80px]'>
+              <div className='md:h-[750px] p-[30px] md:p-[80px]'>
                 <div>
                   <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
                   <form className="space-y-4 text-black" onSubmit={handleSubmit}>

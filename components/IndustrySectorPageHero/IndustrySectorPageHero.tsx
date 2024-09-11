@@ -1,3 +1,7 @@
+import GetInTouch from "../GetInTouch/GetInTouch";
+import HeroDescription from "../HomePageHero/HeroDescription";
+
+
 interface IndustrySectorPageHeroProps {
   componentData: {
     __component: string,
@@ -14,7 +18,7 @@ export default function IndustrySectorPageHero({componentData}: IndustrySectorPa
     <div className="relative">
       {/* Mobile Image */}
       <div
-        className="bg-cover bg-center block md:hidden h-[500px]"
+        className="bg-cover bg-center block md:hidden h-[500px] background-animate-other"
         style={{ backgroundImage: `url(${componentData.mobileViewBackground.data.attributes.url})` }}
       ></div>
 
@@ -30,18 +34,14 @@ export default function IndustrySectorPageHero({componentData}: IndustrySectorPa
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-10">
         <div className="text-center md:text-left md:w-[50%]">
-          <h1 className="poppins-font home-page-title text-4xl font-bold leading-tight md:text-6xl text-white">
-            {componentData.title}
-          </h1>
-          <div className="inter-font text-lg my-6 md:max-w-lg md:my-10 text-white hidden md:block">
-            {componentData.description}
+          <div className="relative">
+            <div className="absolute uncover-animate"></div>
+            <h1 className="poppins-font home-page-title text-4xl font-bold leading-tight md:text-6xl text-white">
+              {componentData.title}
+            </h1>
           </div>
-          <div className="inter-font text-lg my-6 md:max-w-lg md:my-10 text-white block md:hidden text-left max-w-[300px] m-auto">
-            {componentData.mobileViewDescription}
-          </div>
-          <button className="poppins-font bg-blue-400 text-white px-6 py-3 rounded-md text-lg w-[200px]">
-            {componentData.buttonText} →
-          </button>
+          <HeroDescription componentData={componentData} />
+          <GetInTouch buttonText={componentData.buttonText} />
         </div>
       </div>
     </div>

@@ -28,7 +28,31 @@
       background-size: 340%; /* mobile view start size */
     }
     100% {
-      background-size: 360%; /* mobile view end size */
+      background-size: 400%; /* mobile view end size */
+    }
+  }
+}
+
+.background-animate-other {
+  position: relative;
+  background-size: cover; /* 默认背景大小 */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* animation: scaleBackgroundImageDesktop 3s ease-in-out forwards; 默认桌面端的缩放动画 */
+}
+
+@media (max-width: 768px) {
+  .background-animate-other {
+    background-size: 170%; /* 移动端起始大小更大，以确保图片看起来更合适 */
+    animation: scaleBackgroundImageMobileOther 3s ease-in-out forwards; /* 移动端的缩放动画 */
+  }
+
+  @keyframes scaleBackgroundImageMobileOther {
+    0% {
+      background-size: 170%; /* mobile view start size */
+    }
+    100% {
+      background-size: 210%; /* mobile view end size */
     }
   }
 }

@@ -2,16 +2,16 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 
-interface HomePageHeroDescriptionProps {
+interface HeroDescriptionProps {
   componentData: {
     description: string,
     mobileViewDescription: string
   }
 }
 
-export default function HomePageHeroDescription({ componentData }: HomePageHeroDescriptionProps) {
+export default function HeroDescription({ componentData }: HeroDescriptionProps) {
   return (
-    <div className='h-[100px] md:h-[200px] md:max-w-[95%]'>
+    <div className='h-[100px] md:h-[200px] md:max-w-[95%] text-white'>
       <div className="hidden md:block inter-font text-lg my-6 md:max-w-lg md:my-10">
         <TypeAnimation
           preRenderFirstString={true}
