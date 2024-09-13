@@ -13,9 +13,9 @@ export default function MemberCard({description, jobTitle, name, odd, image}: Me
       {
         !odd 
         ?
-        <img className="" src={image.data.attributes.url} alt="" />
+        <img className="" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
         : 
-        <img className="block object-fill md:hidden" src={image.data.attributes.url} alt="" />
+        <img className="block object-fill md:hidden" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
       }
       <div className="inter-font p-10 pt-[100px]">
         <div className="font-bold poppins-font text-4xl">{name}</div>
@@ -25,7 +25,7 @@ export default function MemberCard({description, jobTitle, name, odd, image}: Me
       {
         odd
         ?
-        <img className="hidden object-fill md:block" src={image.data.attributes.url} alt="" />
+        <img className="hidden object-fill md:block" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
         : 
         ""
       }

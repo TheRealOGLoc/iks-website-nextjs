@@ -63,7 +63,7 @@ export default async function HomePage() {
 
   const homeData = await GetData(query, contentType, renderConfig);
   // const util = require("util")
-  // console.log(util.inspect(homeData[0], { depth: null }))
+  // console.log(util.inspect(homeData[3], { depth: null }))
   return (
     <main className='overflow-hidden'>
       <TopNavBar />

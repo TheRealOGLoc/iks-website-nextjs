@@ -37,7 +37,7 @@ export default function HomePageSolution({ componentData }: HomePageSolutionProp
       <div className="flex flex-col items-center justify-center mt-10 space-y-6 md:space-y-0 md:flex-row md:justify-between">
         {componentData.card.map((data: any, index: number) => (
           <HomePageSolutionCard
-            image={data.icon.data.attributes.url}
+            image={data}
             text={data.description}
             index={index}
             key={index}

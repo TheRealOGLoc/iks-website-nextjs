@@ -22,6 +22,7 @@ type StrapiRichTextNode = {
   underline?: boolean;
   image?: {
     alternativeText: string;
+    caption: string,
     url: string;
     width?: number;
     height?: number;
@@ -92,6 +93,7 @@ export default function RichTextRenderer({ nodes }: Props) {
               key={key}
               src={node.image.url}
               alt={node.image.alternativeText}
+              title={node.image.caption}
               width={node.image.width}
               height={node.image.height}
             />

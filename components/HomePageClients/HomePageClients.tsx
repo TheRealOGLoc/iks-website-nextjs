@@ -112,7 +112,8 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
             <img 
               key={idx} 
               src={logo.attributes.url} 
-              alt={logo.attributes.name} 
+              alt={logo.attributes.alternativeText}
+              title={logo.attributes.caption}
               className="w-[150px] md:w-[200px] h-auto"  // Adjust size for mobile (150px) and larger screens (200px)
             />
           ))}
@@ -130,7 +131,8 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
             <img 
               key={idx} 
               src={logo.attributes.url} 
-              alt={logo.attributes.name} 
+              alt={logo.attributes.alternativeText}
+              title={logo.attributes.caption}
               className="w-[150px] md:w-[200px] h-auto"  // Adjust size for mobile (150px) and larger screens (200px)
             />
           ))}

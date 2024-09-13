@@ -24,7 +24,7 @@ export default function LatestCasesCard({ componentData }: LatestCasesProps) {
   
   return (
     <div className="max-w-[450px] p-7 md:border-[1px] md:border-gray-500 md:min-h-[700px]">
-      <img className="max-w-[380px] mx-[auto]" src={componentData.blogImage.data.attributes.url} alt="" />
+      <img className="max-w-[380px] mx-[auto]" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       <div className="font-bold text-2xl my-5 md:my-2">{componentData.title}</div>
       <div className="multiline-ellipsis text-base my-2 text-gray-600">{componentData.content[0].children[0].text}</div>
       <div className="my-4 font-semibold flex">

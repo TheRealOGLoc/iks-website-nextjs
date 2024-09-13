@@ -19,7 +19,8 @@ export default function TransformBusiness({ componentData }: HomePageTransformBu
       <div className="absolute inset-0">
         <img
           src={componentData.image.data.attributes.url}
-          alt="Business Presentation"
+          alt={componentData.image.data.attributes.alternativeText}
+          title={componentData.image.data.attributes.caption}
           className="w-full h-full object-cover"
         />
       </div>

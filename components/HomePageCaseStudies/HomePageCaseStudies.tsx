@@ -71,7 +71,8 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
               <div className="flex w-full justify-center items-center" key={index} style={{ minWidth: '100%' }}>
                 <img
                   src={logo.attributes.url}
-                  alt={logo.attributes.name}
+                  alt={logo.attributes.alternativeText}
+                  title={logo.attributes.caption}
                   className="w-[300px] shadow-md m-1"
                 />
               </div>
@@ -83,7 +84,8 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
                   <img
                     key={logo.id}
                     src={logo.attributes.url}
-                    alt={logo.attributes.name}
+                    alt={logo.attributes.alternativeText}
+                    title={logo.attributes.caption}
                     className="w-[400px] shadow m-1"
                   />
                 ))}

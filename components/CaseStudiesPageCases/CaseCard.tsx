@@ -27,7 +27,8 @@ export default function CaseCard({ componentData }: CaseCardProps) {
       <img
         className=""
         src={componentData.blogImage.data.attributes.url}
-        alt=""
+        alt={componentData.blogImage.data.attributes.alternativeText}
+        title={componentData.blogImage.data.attributes.caption}
       />
     </div>
     <div className="font-semibold mt-10 text-gray-500">

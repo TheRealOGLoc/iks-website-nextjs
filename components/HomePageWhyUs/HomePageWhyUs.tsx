@@ -22,7 +22,7 @@ export default function HomePageWhyUs({ componentData }: HomePageWhyUsProps) {
         <div className="flex flex-wrap -mx-2">
           {componentData.card.map((data: any, index: number) => (
             <HomePageWhyUsCard
-              image={data.icon.data.attributes.url}
+              image={data}
               title={data.title}
               text={data.description}
               key={index}

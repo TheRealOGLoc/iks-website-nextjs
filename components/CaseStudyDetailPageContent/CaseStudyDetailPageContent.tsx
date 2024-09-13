@@ -35,7 +35,7 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
         </div>
         <div className="poppins-font text-5xl font-bold leading-tight">{componentData.title}</div>
         <div className="my-3 block font-semibold md:hidden">{blogDate}</div>
-        <img className="my-10" src={componentData.blogImage.data.attributes.url} alt="" />
+        <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>
 
       <div className="flex justify-between items-center flex-wrap">

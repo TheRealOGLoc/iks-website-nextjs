@@ -1,9 +1,10 @@
 "use client"
 import { motion, useInView } from "framer-motion"
+import Image from "next/image"
 import { useRef } from "react"
 
 interface HomePageSolutionCardProps {
-  image: string,
+  image: any,
   text: string,
   index: number
 }
@@ -17,15 +18,15 @@ export default function HomePageSolutionCard({image, text, index}: HomePageSolut
   return (
     <motion.div 
       className="inter-font text-center m-10"
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0.1, y: 50 }}
       animate={{ 
-        opacity: isInView ? 1 : 0, 
+        opacity: isInView ? 1 : 0.1, 
         y: isInView ? 0 : 50
       }}
       transition={{ duration: 0.7, delay: delayTime }}
       ref={ showUpRef }
       >
-      <img className="w-[64px] m-[auto]" src={image} alt="img" />
+      <img className="w-[64px] m-[auto]" src={image.icon.data.attributes.url} alt={image.icon.data.attributes.alternativeText} title={image.icon.data.attributes.title} />
       <div className="max-w-[280px] mt-7 cyan-blue" >{text}</div>
     </motion.div>
   )
