@@ -8,7 +8,7 @@ export default function TopNavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="poppins-font flex justify-between items-center font-medium border-b-2 border-grey bg-white z-30 sticky top-0">
+    <nav className="poppins-font flex justify-between items-center font-medium border-b-2 border-grey bg-white z-10 sticky top-0">
       {/* Mobile Menu Button */}
       <div className="flex md:hidden mx-10">
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>

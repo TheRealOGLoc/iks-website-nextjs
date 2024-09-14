@@ -40,7 +40,7 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
   return (
     <div className="my-10">
       {showBlogs && (
-        <div className="max-w-[1300px] m-[auto] ">
+        <div className="max-w-[1100px] m-[auto] ">
           <div className="flex flex-col md:flex-row m-[auto] flex-wrap max-w-[1400px] justify-between">
             {blogsData?.map((blog, index) => (
               <BlogCard componentData={blog} key={index} />

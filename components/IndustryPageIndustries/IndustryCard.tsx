@@ -1,8 +1,12 @@
+"use client"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
 import Link from "next/link"
 
 interface IndustryCardProps {
   title: string,
   description: string,
+  index: number,
   image: {
     data: {
       attributes: {
@@ -17,15 +21,39 @@ interface IndustryCardProps {
   buttonUrl: string
 }
 
-export default function IndustryCard({title, description, image, showButton, buttonUrl, buttonText}: IndustryCardProps) {
+export default function IndustryCard({ title, description, image, showButton, buttonUrl, buttonText, index }: IndustryCardProps) {
+
+  const showUpRef = useRef(null)
+  const isInView = useInView(showUpRef, { once: true })
+  const delayTime = (index + 1) * 0.2
+
   return (
-    <div className="mx-auto md:basis-1/3 p-5 my-3 text-center border-[1px] border-gray-300 rounded-2xl max-w-[300px]">
-      <img className="max-w-[230px] m-[auto] mt-5" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
-      <div className="my-3 font-semibold">{title}</div>
-      <div className="text-sm font-light mb-2">{description}</div>
+    <div
+      className="mx-auto md:basis-1/3 my-3 text-left shadow-md hover:bg-slate-100 transition hover:shadow-lg max-w-[300px] min-h-[550px] relative">
+      <img className="m-[auto]" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
+      <motion.div
+      ref={showUpRef}
+      initial={{ y: 15, opacity: 0.3 }}
+      animate={{
+        y: isInView ? 0 : 15,
+        opacity: isInView ? 1 : 0.3,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: delayTime
+      }}
+      className="p-5">
+        <div className="my-3 font-semibold">{title}</div>
+        <div className="text-sm font-light mb-2">{description}</div>
+        
+      </motion.div>
       {
-          showButton && <Link className="text-white bg-slate-600 text-sm p-1 px-3 rounded-lg" href={buttonUrl} >{buttonText}</Link>
-      }
+          showButton && <Link className="absolute rounded-full bottom-5 left-5 p-3 h-12 text-white bg-blue-600 hover:shadow-lg hover:bg-blue-500 no-underline hover:underline-offset-4 hover:underline transition duration-200 text-base font-semibold" href={buttonUrl} >
+            <div className="">
+              {buttonText}
+            </div>
+          </Link>
+        }
     </div>
   )
 }

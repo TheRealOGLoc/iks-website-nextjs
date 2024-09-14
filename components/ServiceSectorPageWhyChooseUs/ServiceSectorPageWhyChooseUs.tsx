@@ -17,7 +17,7 @@ export default function ServiceSectorPageWhyChooseUs({componentData}: ServiceSec
         </div>
         <div className="flex flex-wrap">
           {
-            componentData.card.map((data: any, index: number) => <WhyChooseCard image={data} title={data.title} text={data.description} key={index} />)
+            componentData.card.map((data: any, index: number) => <WhyChooseCard image={data} title={data.title} text={data.description} index={index} key={index} />)
           }
         </div>
       </div>

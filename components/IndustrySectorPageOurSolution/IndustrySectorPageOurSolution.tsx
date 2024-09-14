@@ -14,7 +14,7 @@ export default function IndustrySectorPageOurSolution({componentData}: IndustryS
       <div className="poppins-font text-4xl font-bold text-gray-500"><span className="light-blue">{componentData.title}</span></div>
       <div className="flex flex-wrap flex-col md:flex-row justify-between m-[auto] mt-5">
         {
-          componentData.card && componentData.card.map((content: any, index: number) => <SolutionCard title={content.title} description={content.description} icon={content.icon} key={index} />)
+          componentData.card && componentData.card.map((content: any, index: number) => <SolutionCard title={content.title} description={content.description} icon={content.icon} index={index} key={index} />)
         }
       </div>
     </div>

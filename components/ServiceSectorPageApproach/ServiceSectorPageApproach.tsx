@@ -20,7 +20,7 @@ export default function ServiceSectorPageApproach({ componentData }: ServiceSect
 
       <div className="flex flex-wrap flex-col md:flex-row justify-between max-w-[1200px] m-[auto] mt-5">
         {
-          componentData.card && componentData.card.map((content: any, index: number) => <ApproachCard title={content.title} description={content.description} icon={content.icon} key={index} />)
+          componentData.card && componentData.card.map((content: any, index: number) => <ApproachCard title={content.title} index={index} description={content.description} icon={content.icon} key={index} />)
         }
       </div>
     </div>

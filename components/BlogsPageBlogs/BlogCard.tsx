@@ -24,19 +24,19 @@ interface BlogCardProps {
 }
 export default function BlogCard({ componentData }: BlogCardProps) {
   return (
-    <div className="max-w-[350px] md:max-w-[400px] p-7 shadow-xl mx-auto min-h-[500px] md:min-h-[600px]">
+    <div className="max-w-[350px] md:max-w-[350px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-100 transition hover:shadow-2xl">
       <div className="max-w-[350px] h-[250px] overflow-hidden">
         <img
-          className="w-full h-full object-cover"
+          className="h-[200px] object-cover"
           src={componentData.blogImage.data.attributes.url}
           alt={componentData.blogImage.data.attributes.alternativeText}
           title={componentData.blogImage.data.attributes.caption}
         />
       </div>
-      <div className="font-semibold mt-10 text-gray-500">
+      <div className="font-semibold text-gray-500">
         {formatDate(componentData.postTime)}
       </div>
-      <a className="flex items-start" href={`/blogs/${componentData.slug}`}>
+      <a className="flex items-start hover:underline" href={`/blogs/${componentData.slug}`}>
         <div className="font-bold text-2xl my-2">{componentData.title}</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
