@@ -1,8 +1,12 @@
+import GetInTouch from "../GetInTouch/GetInTouch"
+import HeroDescription from "../HomePageHero/HeroDescription"
+
 interface BlogDetailPageBannerProps {
   componentData: {
     __component: string,
     title: string,
     description: string,
+    mobileViewDescription: string,
     searchPlaceholder: string,
     [key: string]: any
   }
@@ -13,7 +17,7 @@ export default function BlogDetailPageBanner({ componentData }: BlogDetailPageBa
     <div className="relative">
       {/* Mobile Image */}
       <div
-        className="bg-cover bg-center block md:hidden h-[500px]"
+        className="bg-cover bg-center block md:hidden h-[500px] background-animate-other"
         style={{ backgroundImage: `url(${componentData.mobileViewBackground.data.attributes.url})` }}
       ></div>
 
@@ -29,17 +33,18 @@ export default function BlogDetailPageBanner({ componentData }: BlogDetailPageBa
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-10">
         <div className="text-center md:text-left md:w-[50%]">
-          <h1 className="poppins-font home-page-title text-4xl font-bold leading-tight md:text-6xl text-white">
-            {componentData.title}
-          </h1>
-          <p className="inter-font text-lg my-6 md:max-w-lg md:my-10 text-white">
-            {componentData.description}
-          </p>
-          <form action="">
-            <input className="shadow-lg rounded-lg p-2 border-blue-300 border-2" type="text" placeholder={componentData.searchPlaceholder} />
-          </form>
+        <div className="relative">
+            <div className="absolute uncover-animate"></div>
+            <h1 className="poppins-font home-page-title text-4xl font-bold leading-tight md:text-6xl text-white">
+              {componentData.title}
+            </h1>
+          </div>
+          <HeroDescription componentData={componentData} />
+          <GetInTouch buttonText={"Get in touch"}  />
         </div>
       </div>
     </div>
   )
 }
+
+

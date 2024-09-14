@@ -43,14 +43,14 @@ export default function CaseStudyDetailPageLatestCases({ componentData }: CaseSt
           <div className="max-w-[1400px] m-[auto]">
             <div className="flex inter-font items-center my-8">
               <div className="mx-auto md:mx-0 text-center text-5xl font-extrabold">Latest posts</div>
-              <div className="border-[1px] p-1 px-2 border-gray-500 mx-5 hidden md:block"><Link href={"/blogs"}>View all</Link></div>
+              <div className="border-[1px] p-1 px-2 border-gray-500 mx-5 hidden md:block"><Link href={"/case-studies"}>View all</Link></div>
             </div>
             <div className="flex m-[auto] flex-wrap max-w-[1400px]">
               {
                 casesData?.map((blog, index) => <LatestCasesCard componentData={blog} key={index} />)
               }
             </div>
-            <div className="mx-auto w-[100px] text-center border-[1px] p-3 px-2 border-gray-500 block md:hidden"><Link href={"/blogs"}>View all</Link></div>
+            <div className="mx-auto w-[100px] text-center border-[1px] p-3 px-2 border-gray-500 block md:hidden"><Link href={"/case-studies"}>View all</Link></div>
           </div>
       }
     </div>

@@ -34,6 +34,7 @@ export default function BlogDetailPageContent({ componentData }: BlogDetailPageC
         <div className="my-3 block font-semibold md:hidden">{formatDate(componentData.postTime)}</div>
         <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>
+      
       <div className="max-w-[1250px] mx-auto">
         <div className="flex justify-between items-center flex-wrap">
           <div className="max-w-[800px]" >

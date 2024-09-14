@@ -31,7 +31,7 @@ export default function BlogCard({ componentData }: BlogCardProps) {
   const isInView = useInView(showUpRef, { once: true })
 
   return (
-    <div className="max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-100 transition hover:shadow-2xl">
+    <div className="max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-50 transition hover:shadow-2xl">
       <div className="max-w-[350px] h-[250px] overflow-hidden">
         <img
           className="h-[200px] object-cover"
@@ -45,10 +45,10 @@ export default function BlogCard({ componentData }: BlogCardProps) {
       </div>
       <motion.div
       ref={showUpRef}
-      initial={{ y: 15, opacity: 0.3 }}
+      initial={{ y: 15, opacity: 0.2 }}
       animate={{
         y: isInView ? 0 : 15,
-        opacity: isInView ? 1 : 0.3,
+        opacity: isInView ? 1 : 0.2,
       }}
       transition={{
         duration: 0.7,

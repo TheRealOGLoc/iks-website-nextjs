@@ -49,10 +49,10 @@
 
   @keyframes scaleBackgroundImageMobileOther {
     0% {
-      background-size: 170%; /* mobile view start size */
+      background-size: 200%; /* mobile view start size */
     }
     100% {
-      background-size: 210%; /* mobile view end size */
+      background-size: 230%; /* mobile view end size */
     }
   }
 }

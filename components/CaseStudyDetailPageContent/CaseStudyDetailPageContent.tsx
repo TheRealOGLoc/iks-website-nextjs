@@ -38,13 +38,15 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
         <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>
 
-      <div className="flex justify-between items-center flex-wrap">
-        <div className="max-w-[800px]" >
-          <RichTextRenderer nodes={componentData.content} />
+      <div className="max-w-[1250px] mx-auto">
+        <div className="flex justify-between items-center flex-wrap">
+          <div className="max-w-[800px]" >
+            <RichTextRenderer nodes={componentData.content} />
+          </div>
+          {
+            componentData.showSubscribeCard ? <SubscribeCard /> : ""
+          }
         </div>
-        {
-          componentData.showSubscribeCard ? <SubscribeCard /> : ""
-        }
       </div>
     </div>
   )

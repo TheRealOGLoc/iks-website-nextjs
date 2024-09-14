@@ -6,3 +6,8 @@
   -webkit-box-orient: vertical;
   white-space: normal;
 }
+
+/* LatestPostCard.css */
+.latest-post-card:hover .read-more-link {
+  text-decoration: underline;
+}

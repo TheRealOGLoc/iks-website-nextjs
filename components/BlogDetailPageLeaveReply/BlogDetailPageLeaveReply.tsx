@@ -40,19 +40,20 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
   };
 
   return (
-    <div className="p-7 my-10 md:my-0 md:p-[100px]">
+    <div className="p-7 md:max-w-[1200px] md:mx-auto my-10 md:my-0 md:p-[100px]">
       <div className="text-center">
-        <div className="text-3xl font-semibold cyan-blue my-5">{componentData.title}</div>
-        <div className="inter-font text-zinc-800 max-w-[800px] mx-auto text-sm cyan-blue">{componentData.subtitle}</div>
+        <div className="text-5xl font-extrabold my-5">{componentData.title}</div>
+        <div className="inter-font text-zinc-800 max-w-[800px] mx-auto text-md cyan-blue">{componentData.subtitle}</div>
       </div>
       <form action="" className="flex flex-col items-start inter-font mt-10">
         <div className="flex space-x-4 w-full">
           <div className="w-full block">
             <label className="font-semibold" htmlFor="">{componentData.nameLabel}</label> <br />
             <input
-              className="h-10 w-full md:rounded-lg drop-shadow-md p-2"
+              className="h-10 w-full  drop-shadow-md p-2"
               type="text"
               name="name"
+              placeholder="Name"
               value={inputValue.name}
               onChange={_handleInput}
             />
@@ -60,9 +61,10 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
           <div className="w-full block">
             <label className="font-semibold" htmlFor="">{componentData.emailLabel}</label> <br />
             <input
-              className="h-10 w-full md:rounded-md drop-shadow-md p-2"
+              className="h-10 w-full drop-shadow-md p-2"
               type="text"
               name="email"
+              placeholder="Email"
               value={inputValue.email}
               onChange={_handleInput}
             />
@@ -71,9 +73,10 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
         <div className="w-full mt-2">
           <label htmlFor="" className="font-semibold w-full block">{componentData.websiteLabel}</label> <br />
           <input
-            className="h-10 w-full md:rounded-lg drop-shadow-md p-2"
+            className="h-10 w-full drop-shadow-md p-2"
             type="text"
             name="website"
+            placeholder="www.example.com"
             value={inputValue.website}
             onChange={_handleInput}
           />
@@ -81,7 +84,7 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
         <div className="w-full mt-2">
           <label htmlFor="" className="font-semibold w-full block">{componentData.commentLabel}</label> <br />
           <textarea
-            className="h-20 w-full md:rounded-lg drop-shadow-md p-2"
+            className="h-20 w-full drop-shadow-md p-2"
             name="comment"
             value={inputValue.comment}
             onChange={_handleInput}

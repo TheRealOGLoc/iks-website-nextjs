@@ -23,7 +23,7 @@ export function Search() {
   return (
       <input
         type="text"
-        className="shadow-lg rounded-lg p-2 border-blue-300 border-2"
+        className="shadow-lg hover:shadow-2xl transition rounded-full border-[1px] p-3 "
         placeholder="Search"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("query")?.toString()}
