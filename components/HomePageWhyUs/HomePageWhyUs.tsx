@@ -25,6 +25,7 @@ export default function HomePageWhyUs({ componentData }: HomePageWhyUsProps) {
               image={data}
               title={data.title}
               text={data.description}
+              index={index}
               key={index}
             />
           ))}

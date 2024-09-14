@@ -20,7 +20,7 @@ export default function HomePageNumbersCard({ data, title, text, plusSign }: Hom
     start: 0,
     end: data,
     delay: 0,
-    duration: 3,
+    duration: 4,
   });
 
   useEffect(() => {

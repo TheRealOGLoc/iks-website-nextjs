@@ -34,7 +34,7 @@ export default function ServicePageCategory({ componentData }: ServiceCategoryPr
     <div className="my-5 p-5">
       <div className="text-center inter-font mt-5">
         <div className="poppins-font text-4xl font-bold text-gray-500"><span>{componentData.titleLeftPart}</span> <span className="light-blue">{componentData.titleRightPart}</span></div>
-        <img className="w-[256px] mb-3 mx-auto block md:mx-0 md:hidden" src={componentData.mobileViewImage.data.attributes.url} alt="service-icon" />
+        <img className="w-[256px] mb-3 mx-auto block md:mx-0 md:hidden" src={componentData.mobileViewImage.data.attributes.url} alt={componentData.mobileViewImage.data.attributes.alternativeText} title={componentData.mobileViewImage.data.attributes.caption} />
         <div className="max-w-[800px] my-5 m-[auto] text-lg font-medium">{componentData.description}</div>
         <Link className="rounded-lg p-3 text-white bg-gray-500 px-5" href={componentData.buttonUrl} >{componentData.buttonText}</Link>
       </div>

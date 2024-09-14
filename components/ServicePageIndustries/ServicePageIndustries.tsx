@@ -22,7 +22,7 @@ export default function ServicePageIndustries({componentData}: ServicePageIndust
         <Link className="rounded-lg p-3 text-white bg-gray-500 px-5" href={""} >{componentData.buttonText}</Link>
       </div>
       <div className="flex flex-wrap flex-col md:flex-row md:justify-between max-w-[1000px] m-[auto] mt-5">
-        { componentData.card && componentData.card.map((content : any, index: number) => <IndustryCard title={content.title} description={content.description} image={content.image} key={index} />) }
+        { componentData.card && componentData.card.map((content : any, index: number) => <IndustryCard title={content.title} description={content.description} image={content.image} index={index} key={index} />) }
       </div>
     </div>
   )
