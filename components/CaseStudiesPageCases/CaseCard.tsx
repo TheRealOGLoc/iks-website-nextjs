@@ -22,8 +22,8 @@ interface CaseCardProps {
 }
 export default function CaseCard({ componentData }: CaseCardProps) {
   return (
-    <div className="max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[430px] md:max-h-[500px] transition hover:shadow-2xl">
-      <div className="w-[290px] md:w-[350px] md:overflow-hidden">
+    <div className="max-w-[350px] my-3 md:max-w-[380px] shadow-xl mx-auto min-h-[430px] md:max-h-[500px] transition hover:shadow-2xl">
+      <div className="mt-12 w-[290px] md:w-[350px] mx-auto md:overflow-hidden">
         <img
           className="max-w-[290px] md:max-w-[350px]"
           src={componentData.blogImage.data.attributes.url}
@@ -31,28 +31,29 @@ export default function CaseCard({ componentData }: CaseCardProps) {
           title={componentData.blogImage.data.attributes.caption}
         />
       </div>
-      <div className="font-semibold mt-10 text-gray-500">
+      <div className="p-7">
+        <a className="flex items-start hover:underline" href={`/case-studies/${componentData.slug}`}>
+          <div className="font-bold text-2xl my-2">{componentData.title}</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-5 min-w-5 mt-4 ml-1"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 19L19 5M5 5h14v14"
+            />
+          </svg>
+        </a>
+        <div className="multiline-ellipsis text-lg my-2 text-gray-500">
+          {componentData.content[0].children[0].text}
+        </div>
       </div>
-      <a className="flex items-start hover:underline" href={`/case-studies/${componentData.slug}`}>
-        <div className="font-bold text-2xl my-2">{componentData.title}</div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="w-5 min-w-5 mt-4 ml-1"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 19L19 5M5 5h14v14"
-          />
-        </svg>
-      </a>
-      <div className="multiline-ellipsis text-lg my-2 text-gray-500">
-        {componentData.content[0].children[0].text}
-      </div>
+
     </div>
   )
 }

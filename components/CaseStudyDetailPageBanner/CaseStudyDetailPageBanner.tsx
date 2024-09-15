@@ -1,3 +1,5 @@
+import GetInTouch from "../GetInTouch/GetInTouch"
+
 interface CaseStudyDetailPageBannerProps {
   componentData: {
     __component: string,
@@ -36,9 +38,7 @@ export default function CaseStudyDetailPageBanner({ componentData }: CaseStudyDe
           <p className="inter-font text-lg my-6 md:max-w-lg md:my-10 text-white">
             {componentData.description}
           </p>
-          <form action="">
-            <input className="shadow-lg rounded-lg p-2 border-blue-300 border-2" type="text" placeholder={componentData.searchPlaceholder} />
-          </form>
+          <GetInTouch buttonText={"Get in touch"}/>
         </div>
       </div>
     </div>
