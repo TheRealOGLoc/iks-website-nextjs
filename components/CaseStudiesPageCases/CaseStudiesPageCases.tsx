@@ -43,7 +43,7 @@ export default function CaseStudiesPageCases({componentData}: CaseStudiesPageCas
     <div className="my-10">
       {
         showCases &&
-          <div className="max-w-[1400px] m-[auto] ">
+          <div className="max-w-[1200px] m-[auto] ">
             <div className="flex flex-col md:flex-row m-[auto] flex-wrap max-w-[1400px] justify-between">
               {
                 casesData?.map((blog, index) => <CaseCard componentData={blog} key={index} />)

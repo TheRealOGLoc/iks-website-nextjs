@@ -2,6 +2,7 @@ import Link from "next/link"
 import { formatDate } from "../../utilities/format-data"
 import RichTextRenderer from "./RichTextRenderer"
 import SubscribeCard from "./SubscribeCard"
+import DetailPageShareButton from "../DetailPageShareButton/DetailPageShareButton"
 
 interface BlogDetailPageContentProps {
   componentData: {
@@ -9,19 +10,18 @@ interface BlogDetailPageContentProps {
     content: [],
     postTime: string,
     readTime: number,
+    slug: string,
     title: string,
     showSubscribeCard: boolean
   }
 }
 
-
 export default function BlogDetailPageContent({ componentData }: BlogDetailPageContentProps) {
-
   return (
     <div className="p-7 md:p-[100px] inter-font ">
       <div className="max-w-[1000px] m-[auto]">
         <div className="flex my-3 font-semibold ">
-          <Link className="hidden md:block" href="/blogs">All Posts</Link>
+          <Link className="hidden md:block" href="/blogs">All Blogs</Link>
           <div className="flex md:hidden items-center">
             <Link className="" href="/blogs">Blogs</Link>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-3 h-3 ml-2">
@@ -39,6 +39,7 @@ export default function BlogDetailPageContent({ componentData }: BlogDetailPageC
         <div className="flex justify-between items-center flex-wrap">
           <div className="max-w-[800px]" >
             <RichTextRenderer nodes={componentData.content} />
+            <DetailPageShareButton/>
           </div>
           {
             componentData.showSubscribeCard ? <SubscribeCard /> : ""

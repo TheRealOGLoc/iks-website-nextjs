@@ -23,9 +23,9 @@ interface CaseCardProps {
 export default function CaseCard({ componentData }: CaseCardProps) {
   return (
     <div className="max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[430px] md:max-h-[500px] transition hover:shadow-2xl">
-      <div className="overflow-hidden">
+      <div className="w-[290px] md:w-[350px] md:overflow-hidden">
         <img
-          className="max-w-[350px]"
+          className="max-w-[290px] md:max-w-[350px]"
           src={componentData.blogImage.data.attributes.url}
           alt={componentData.blogImage.data.attributes.alternativeText}
           title={componentData.blogImage.data.attributes.caption}

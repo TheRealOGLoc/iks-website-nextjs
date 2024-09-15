@@ -26,6 +26,7 @@
     "react": "18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "18.3.1",
+    "react-share-social": "^0.1.60",
     "react-type-animation": "^3.2.0",
     "resend": "^4.0.0",
     "tailwindcss": "3.4.10",

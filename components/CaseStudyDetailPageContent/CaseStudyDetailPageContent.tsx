@@ -4,6 +4,7 @@ import { formatDate } from "../../utilities/format-data"
 import RichTextRenderer from "../BlogDetailPageContent/RichTextRenderer"
 import SubscribeCard from "../BlogDetailPageContent/SubscribeCard"
 import { useState } from "react"
+import DetailPageShareButton from "../DetailPageShareButton/DetailPageShareButton"
 
 interface CaseStudyDetailPageContentProps {
   componentData: {
@@ -24,7 +25,7 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
     <div className="p-7 md:p-[100px] inter-font ">
       <div className="max-w-[1000px] m-[auto]">
         <div className="flex my-3 font-semibold ">
-          <Link className="hidden md:block" href="/blogs">All Posts</Link>
+          <Link className="hidden md:block" href="/blogs">All Case Studies</Link>
           <div className="flex md:hidden items-center">
             <Link className="" href="/case-studies">Case Studies</Link>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-3 h-3 ml-2">
@@ -42,6 +43,7 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
         <div className="flex justify-between items-center flex-wrap">
           <div className="max-w-[800px]" >
             <RichTextRenderer nodes={componentData.content} />
+            <DetailPageShareButton/>
           </div>
           {
             componentData.showSubscribeCard ? <SubscribeCard /> : ""
