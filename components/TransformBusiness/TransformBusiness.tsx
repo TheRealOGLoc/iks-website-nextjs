@@ -29,7 +29,7 @@ export default function TransformBusiness({ componentData }: HomePageTransformBu
       <div className="absolute inset-0 bg-white opacity-40 md:opacity-40"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-left max-w-[900px] px-6">
+      <div className="relative text-left max-w-[900px] px-6">
         <div className="text-2xl md:text-4xl font-semibold poppins-font cyan-blue">
           {componentData.titleLeftPart} <span className="light-blue">{componentData.titleRightPart}</span>
         </div>

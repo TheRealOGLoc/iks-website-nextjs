@@ -21,7 +21,7 @@ export default function IndustryCard({ title, description, image, index }: Indus
 
   const showUpRef = useRef(null)
   const isInView = useInView(showUpRef, { once: true })
-  const delayTime = (index + 1) * 0.3
+  const delayTime = (index + 1) * 0.2
 
   return (
     <motion.div
