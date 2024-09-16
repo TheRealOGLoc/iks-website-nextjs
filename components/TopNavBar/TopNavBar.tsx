@@ -39,7 +39,7 @@ export default function TopNavBar() {
 
       {/* Desktop Menu Section */}
       <div className="hidden md:flex justify-between items-center space-x-6 mx-10">
-        <Link href="/">Home</Link>
+        <Link className="hover:text-blue-600" href="/">Home</Link>
 
         <div className="relative group">
           <Link href="/services" className="group-hover:text-blue-600">
@@ -65,8 +65,8 @@ export default function TopNavBar() {
           </div>
         </div>
 
-        <Link href="/blogs">Blogs</Link>
-        <Link href="/case-studies">Case Studies</Link>
+        <Link className="hover:text-blue-600" href="/blogs">Blogs</Link>
+        <Link className="hover:text-blue-600" href="/case-studies">Case Studies</Link>
 
         <div className="relative group">
           <Link href="/about-us" className="group-hover:text-blue-600">

@@ -48,6 +48,9 @@ import IndustrySectorPageHero from "../components/IndustrySectorPageHero/Industr
 import IndustrySectorPagePainPoint from "../components/IndustrySectorPagePainPoint/IndustrySectorPagePainPoint";
 import IndustrySectorPageOurSolution from "../components/IndustrySectorPageOurSolution/IndustrySectorPageOurSolution";
 
+import TestimonialsPageHero from "@/components/TestimonialsPageHero/TestimonialsPageHero";
+import TestimonialsPageSlider from "@/components/TestimonialsPageSlider/TestimonialsPageSlider";
+
 import TransformBusiness from "../components/TransformBusiness/TransformBusiness";
 import Footer from "../components/Footer/Footer";
 
@@ -124,6 +127,10 @@ export const caseStudyDetailPageComponentMap = {
   'leave-reply': BlogDetailPageLeaveReply
 }
 
+export const testimonialsPageComponentMap = {
+  'hero': TestimonialsPageHero,
+  'testimonials': TestimonialsPageSlider
+}
 
 export const globalComponentMap = {
   'transform-business': TransformBusiness,

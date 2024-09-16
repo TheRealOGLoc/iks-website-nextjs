@@ -1,6 +1,6 @@
 import TopNavBar from '@/components/TopNavBar/TopNavBar'
 import DynamicZone from '@/components/DynamicZone/DynamicZone'
-import { OurTeamPageComponentMap, globalComponentMap } from '@/utilities/components-map'
+import { testimonialsPageComponentMap, globalComponentMap } from '@/utilities/components-map'
 import { GetData, GetSeoData } from '@/utilities/get-components-data'
 import { Metadata } from 'next';
 import { GenerateMetaData } from '@/utilities/generate-meta-data';
@@ -30,9 +30,10 @@ export async function generateMetadata():Promise<Metadata | null> {
   return null
 }
 
-const contentType = "our-team"
+const contentType = "testimonial"
 
-export default async function OurTeamPage() {
+export default async function Testimonials() {
+
   const query = {
     populate: {
       components: {
@@ -52,15 +53,14 @@ export default async function OurTeamPage() {
   const renderConfig = {
     next: { revalidate: 10 }
   }
-  const ourTeamData = await GetData(query, contentType, renderConfig)
-
+  const testimonialData = await GetData(query, contentType, renderConfig)
   return (
     <div className='w-screen'>
       <TopNavBar />
-      {ourTeamData && (
+      {testimonialData && (
         <DynamicZone
-          content={ourTeamData}
-          pageComponentMap={OurTeamPageComponentMap}
+          content={testimonialData}
+          pageComponentMap={testimonialsPageComponentMap}
           globalComponentMap={globalComponentMap}
         />
       )}
