@@ -99,7 +99,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
     <div className='inter-font'>
       <button
         onClick={() => _handleOpenClick()}
-        className="mt-9 md:mt-0 poppins-font bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
+        className="mt-9 md:mt-0 poppins-font bg-[#1d68ae] bg-opacity-80 md:bg-opacity-80 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
       >{buttonText} →</button>
 
       {
@@ -168,7 +168,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                     <input
                       type="submit"
                       value={"Submit"}
-                      className="bg-blue-600 text-white py-2 px-4 cursor-pointer w-[200px]"
+                      className="bg-[#1d68ae] text-white py-2 px-4 cursor-pointer w-[200px]"
                     />
                   </form>
                 </div>

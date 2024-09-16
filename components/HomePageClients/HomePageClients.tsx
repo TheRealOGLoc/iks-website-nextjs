@@ -28,16 +28,16 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
   const settingsLTR = {
     dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 5, // Default for desktop (5 logos per row)
-    slidesToScroll: 1,
+    speed: 3000,
+    slidesToShow: 6, // Default for desktop (5 logos per row)
+    slidesToScroll: 3,
     autoplay: true,
-    autoplaySpeed: 2000, // Slide every 3 seconds
+    autoplaySpeed: 1, // Slide every 3 seconds
     responsive: [
       {
         breakpoint: 768, // For mobile view
         settings: {
-          slidesToShow: 4, // Show 4 logos per row on mobile
+          slidesToShow: 6, // Show 4 logos per row on mobile
           slidesToScroll: 1,
           infinite: true,
         },
@@ -45,7 +45,7 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
       {
         breakpoint: 1024, // For tablet and desktop view
         settings: {
-          slidesToShow: 5, // 5 logos per row for tablet and desktop
+          slidesToShow: 6, // 5 logos per row for tablet and desktop
           slidesToScroll: 1,
           infinite: true,
         },

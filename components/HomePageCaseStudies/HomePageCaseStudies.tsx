@@ -54,15 +54,12 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
         <div className="inter-font text-xl max-w-[490px] m-[auto] font-medium my-2 ">
           {componentData.description}
         </div>
-        <div className="mt-6">
-          <Link href={`/case-studies`} className="text-white bg-light-blue hover:bg-blue-600 transition text-sm p-3 mt-3">{componentData.buttonText}</Link>
-        </div>
       </div>
 
       {/* Slider */}
       <div className="relative max-w-[1230px] m-[auto] overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-in-out mt-9 md:mt-[100px]"
+          className="flex transition-transform duration-500 ease-in-out mt-9 md:mt-[50px]"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {isMobile
@@ -86,7 +83,7 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
                     src={logo.attributes.url}
                     alt={logo.attributes.alternativeText}
                     title={logo.attributes.caption}
-                    className="w-[400px] shadow m-1"
+                    className="w-[400px] border-2 border-zinc-500 shadow-xl m-1"
                   />
                 ))}
               </div>
@@ -94,7 +91,7 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
         </div>
 
         {/* Pagination dots */}
-        <div className="flex justify-center mt-9 md:mt-[100px] space-x-5">
+        <div className="flex justify-center mt-9 md:mt-[50px] space-x-5">
           {Array.from({ length: totalSlides }, (_, i) => (
             <span
               key={i}
@@ -104,6 +101,9 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
             ></span>
           ))}
         </div>
+      </div>
+      <div className="mt-6 text-center">
+        <Link href={`/case-studies`} className="text-white bg-light-blue hover:bg-blue-600 transition text-sm p-3 mt-3">{componentData.buttonText}</Link>
       </div>
     </div>
   );

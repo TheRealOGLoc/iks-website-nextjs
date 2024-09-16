@@ -66,7 +66,7 @@ export default function TestimonialsPageSlider({ componentData }: TestimonialsPr
             <motion.span
               key={index}
               className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full cursor-pointer ${
-                index === activeIndex ? "bg-slate-300" : "bg-black"
+                index === activeIndex ? "bg-black" : "bg-slate-300"
               }`}
               onClick={() => goToSlide(index)}
               initial={{ scale: 1 }}
