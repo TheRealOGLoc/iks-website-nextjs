@@ -31,7 +31,7 @@ export default function BlogCard({ componentData }: BlogCardProps) {
   const isInView = useInView(showUpRef, { once: true })
 
   return (
-    <div className="max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-50 transition hover:shadow-2xl">
+    <div className="overflow-hidden max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-50 transition hover:shadow-2xl">
       <div className="max-w-[350px] h-[250px] overflow-hidden">
         <img
           className="h-[200px] object-cover"

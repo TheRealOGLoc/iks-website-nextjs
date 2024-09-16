@@ -32,7 +32,7 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
     slidesToShow: 5, // Default for desktop (5 logos per row)
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // Slide every 3 seconds
+    autoplaySpeed: 2000, // Slide every 3 seconds
     responsive: [
       {
         breakpoint: 768, // For mobile view

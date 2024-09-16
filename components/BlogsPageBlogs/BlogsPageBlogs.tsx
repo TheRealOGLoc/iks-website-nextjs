@@ -26,10 +26,14 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
   const searchQuery = searchParams.get("query") ?? ""; 
   const [showBlogs] = useState<boolean>(componentData.showAllBlogs)
   const [blogsData, setBlogsData] = useState<[] | null>(null)
+  const renderConfig = {
+    next: { revalidate: 10 }
+  }
 
   useEffect(() => {
     async function getBlogs() {
-      const response = await GetAllBlogsData(query, contentType, searchQuery)
+
+      const response = await GetAllBlogsData(query, contentType, searchQuery, renderConfig)
       setBlogsData(response as [])
     }
     if (componentData.showAllBlogs) {

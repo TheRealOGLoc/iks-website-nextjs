@@ -58,7 +58,7 @@ export default async function HomePage() {
   };
 
   const renderConfig = {
-    next: { revalidate: 1 }
+    next: { revalidate: 10 }
   }
 
   const homeData = await GetData(query, contentType, renderConfig);
