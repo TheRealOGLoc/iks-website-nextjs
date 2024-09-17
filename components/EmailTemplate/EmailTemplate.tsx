@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface EmailTemplateProps {
-  name: string;
+  name: string
   companyName: string
   phoneNumber: string
   email:string
@@ -23,7 +23,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <div>{message}</div>
     <br />
     <div>Please reply to customer as soon as possible.</div>
-    <div>Be aware that you can't reply this email to the customer.</div>
+    <div>Be aware that you can not reply this email to the customer.</div>
     <div>Please login to the company email to reply to the customer.</div>
     <br />
     <div>Cheers!</div>

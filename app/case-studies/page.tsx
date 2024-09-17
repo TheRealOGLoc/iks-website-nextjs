@@ -4,8 +4,9 @@ import { CaseStudiesPageComponentMap, globalComponentMap } from '@/utilities/com
 import { GetData, GetSeoData } from '@/utilities/get-components-data'
 import { Metadata } from 'next';
 import { GenerateMetaData } from '@/utilities/generate-meta-data';
+import { Suspense } from 'react'
 
-export async function generateMetadata():Promise<Metadata | null> {
+export async function generateMetadata(): Promise<Metadata | null> {
   const SEOquery = {
     populate: {
       components: {
@@ -42,20 +43,22 @@ export default async function CaseStudiesPage() {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const casesData = await GetData(query, contentType, renderConfig);
 
   return (
-    <div className='w-screen'>
-      <TopNavBar />
-      {casesData && (
-        <DynamicZone
-          content={casesData}
-          pageComponentMap={CaseStudiesPageComponentMap}
-          globalComponentMap={globalComponentMap}
-        />
-      )}
-    </div>
+    <Suspense>
+      <div className='w-screen'>
+        <TopNavBar />
+        {casesData && (
+          <DynamicZone
+            content={casesData}
+            pageComponentMap={CaseStudiesPageComponentMap}
+            globalComponentMap={globalComponentMap}
+          />
+        )}
+      </div>
+    </Suspense>
   )
 }

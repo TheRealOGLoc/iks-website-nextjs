@@ -55,7 +55,7 @@ export default async function Testimonials() {
   }
   const testimonialData = await GetData(query, contentType, renderConfig)
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {testimonialData && (
         <DynamicZone

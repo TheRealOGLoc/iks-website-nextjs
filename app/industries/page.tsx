@@ -52,7 +52,7 @@ export default async function IndustryPage() {
   }
   const industryData = await GetData(query, contentType, renderConfig);
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {industryData && (
         <DynamicZone

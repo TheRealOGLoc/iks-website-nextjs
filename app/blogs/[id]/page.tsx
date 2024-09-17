@@ -26,7 +26,7 @@ export default async function BlogDetailPage({ params }: Params) {
   const blogDetailData = await GetData(query, contentType, renderConfig);
 
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {blogDetailData && (
         <DynamicZone

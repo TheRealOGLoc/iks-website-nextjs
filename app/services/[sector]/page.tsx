@@ -32,7 +32,7 @@ export default async function ServiceSectorPage({ params }: Params) {
   }
   const serviceSectorData = await GetData(query, contentType, renderConfig);
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {serviceSectorData && (
         <DynamicZone

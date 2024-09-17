@@ -30,7 +30,7 @@ export async function generateMetadata():Promise<Metadata | null> {
   return null
 }
 
-const contentType = "about-us"
+const contentType = ""
 
 export default async function AboutUs() {
   const query = {

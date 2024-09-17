@@ -56,7 +56,7 @@ export default async function ServicePage() {
   }
   const serviceData = await GetData(query, contentType, renderConfig);
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {serviceData && (
         <DynamicZone

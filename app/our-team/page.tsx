@@ -55,7 +55,7 @@ export default async function OurTeamPage() {
   const ourTeamData = await GetData(query, contentType, renderConfig)
 
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {ourTeamData && (
         <DynamicZone

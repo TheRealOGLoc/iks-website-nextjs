@@ -24,7 +24,7 @@ export default async function CaseStudyDetailPage({ params }: Params) {
   }
   const caseStudyDetailData = await GetData(query, contentType, renderConfig);
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {caseStudyDetailData && (
         <DynamicZone

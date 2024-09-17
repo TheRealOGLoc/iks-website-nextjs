@@ -4,8 +4,9 @@ import { BlogsPageComponentMap, globalComponentMap } from '@/utilities/component
 import { GetData, GetSeoData } from '@/utilities/get-components-data'
 import { Metadata } from 'next';
 import { GenerateMetaData } from '@/utilities/generate-meta-data';
+import { Suspense } from 'react'
 
-export async function generateMetadata():Promise<Metadata | null> {
+export async function generateMetadata(): Promise<Metadata | null> {
   const SEOquery = {
     populate: {
       components: {
@@ -46,15 +47,17 @@ export default async function BlogsPage() {
   const blogsData = await GetData(query, contentType, renderConfig);
 
   return (
-    <div className='w-screen'>
-      <TopNavBar />
-      {blogsData && (
-        <DynamicZone
-          content={blogsData}
-          pageComponentMap={BlogsPageComponentMap}
-          globalComponentMap={globalComponentMap}
-        />
-      )}
-    </div>
+    <Suspense>
+      <div className='w-screen'>
+        <TopNavBar />
+        {blogsData && (
+          <DynamicZone
+            content={blogsData}
+            pageComponentMap={BlogsPageComponentMap}
+            globalComponentMap={globalComponentMap}
+          />
+        )}
+      </div>
+    </Suspense>
   )
 }
