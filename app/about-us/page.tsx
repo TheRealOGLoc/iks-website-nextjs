@@ -30,7 +30,7 @@ export async function generateMetadata():Promise<Metadata | null> {
   return null
 }
 
-const contentType = ""
+const contentType = "about-us"
 
 export default async function AboutUs() {
   const query = {
@@ -51,13 +51,13 @@ export default async function AboutUs() {
   }
 
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
 
   const aboutUsData = await GetData(query, contentType, renderConfig)
 
   return (
-    <div className='w-screen'>
+    <div className=''>
       <TopNavBar />
       {aboutUsData && (
         <DynamicZone

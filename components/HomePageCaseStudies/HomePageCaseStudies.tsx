@@ -83,7 +83,7 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
                     src={logo.attributes.url}
                     alt={logo.attributes.alternativeText}
                     title={logo.attributes.caption}
-                    className="w-[400px] border-2 border-zinc-500 shadow-xl m-1"
+                    className="w-[400px] border-[1px] rounded-lg border-zinc-300 shadow-md m-1"
                   />
                 ))}
               </div>

@@ -180,7 +180,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                     <div className="text-lg font-bold">Find Us</div>
                     <Link className='hover:text-gray-600 transition' href={googleUrl}>
                       <p>SYDNEY, AUSTRALIA</p>
-                      <p>Level 14, 32 Smith Road, Paramatta NSW 2150</p>
+                      <p>Level 14, 32 Smith Street, Paramatta NSW 2150</p>
                     </Link>
                   </div>
                   <div>
