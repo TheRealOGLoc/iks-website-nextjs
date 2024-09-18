@@ -17,6 +17,7 @@ export default function HomePageWhyUsCard({ image, title, text, index }: HomePag
 
   return (
     <motion.div
+      key={index}
       ref={showUpRef}
       initial={{ opacity: 0.5}}
       animate={{
