@@ -78,10 +78,11 @@ export default function TopNavBar() {
           <Link href="/about-us" className="group-hover:text-blue-600">
             About Us
           </Link>
-          <div className="absolute text-right left-[-45px] hidden group-hover:block hover:block bg-white shadow-lg rounded">
+          <div className="absolute text-right left-[-70px] hidden group-hover:block w-[160px] hover:block bg-white shadow-lg rounded">
             <Link href="/about-us" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">About Us</Link>
             <Link href="/our-team" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Our Team</Link>
             <Link href="/testimonials" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Testimonials</Link>
+            <Link href="/privacy-policy" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Privacy Policy</Link>
           </div>
         </div>
       </div>
@@ -146,6 +147,7 @@ export default function TopNavBar() {
               <Link href="/about-us" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- About Us</Link>
               <Link href="/our-team" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Our Team</Link>
               <Link href="/testimonials" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Testimonials</Link>
+              <Link href="/privacy-policy" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Privacy Policy</Link>
             </div>
           </div>
         </div>

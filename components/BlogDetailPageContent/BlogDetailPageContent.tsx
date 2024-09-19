@@ -30,7 +30,7 @@ export default function BlogDetailPageContent({ componentData }: BlogDetailPageC
           </div>
           <div className="ml-5 hidden md:block">{formatDate(componentData.postTime)}</div>
         </div>
-        <div className="poppins-font text-5xl font-bold leading-tight">{componentData.title}</div>
+        <div className="poppins-font text-4xl md:text-5xl font-bold leading-tight">{componentData.title}</div>
         <div className="my-3 block font-semibold md:hidden">{formatDate(componentData.postTime)}</div>
         <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>

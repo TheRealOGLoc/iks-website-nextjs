@@ -40,7 +40,7 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
   };
 
   return (
-    <div className="p-7 md:max-w-[1200px] md:mx-auto my-10 md:my-0 md:p-[100px]">
+    <div className="p-7 md:max-w-[1200px] md:mx-auto my-10 md:my-0 md:px-[100px]">
       <div className="text-center">
         <div className="text-5xl font-extrabold my-5">{componentData.title}</div>
         <div className="inter-font text-zinc-800 max-w-[800px] mx-auto text-md cyan-blue">{componentData.subtitle}</div>

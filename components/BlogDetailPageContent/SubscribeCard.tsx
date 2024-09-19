@@ -54,7 +54,7 @@ export default function SubscribeCard() {
       </form>
       {error && <span className="text-red-500 mt-2">{error}</span>} {/* Display error message */}
       {success && <span className="text-green-400 mt-2">{success}</span>}
-      <div className="text-sm mt-1">By subscribing you agree with our <Link href=""><span className="underline decoration-black" >Privacy Policy</span></Link></div>
+      <div className="text-sm mt-1">By subscribing you agree with our <Link href="/privacy-policy"><span className="underline decoration-black" >Privacy Policy</span></Link></div>
     </div>
   )
 }
