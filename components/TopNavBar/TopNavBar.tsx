@@ -88,7 +88,7 @@ export default function TopNavBar() {
 
       {/* Mobile Menu Section */}
       <div
-        className={`fixed top-0 left-0 p-4 h-full w-76 bg-white text-gray-700 shadow-lg z-50 transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-0 left-0 p-4 h-full w-96 bg-white text-gray-700 shadow-lg z-50 transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div className="flex justify-between items-center p-1">
           <Image className="w-32" src={iksLogo} alt="" />
@@ -96,7 +96,7 @@ export default function TopNavBar() {
             &times;
           </button>
         </div>
-        <div className="flex flex-col items-start p-4 space-y-4">
+        <div className="flex flex-col items-start p-4 space-y-2">
           <Link className="text-xl font-semibold" href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
 
           {/* Services Dropdown */}
@@ -150,22 +150,22 @@ export default function TopNavBar() {
           </div>
         </div>
         <div className="w-full text-black p-4 text-lg">
-          <div className="my-5">
+          <div className="mb-5">
             <div className="text-xl">Location</div>
             <a href="https://goo.gl/maps/XfcxXc8ttaiMrEcm7">
               <div>Level 14, 32 Smith Street</div>
               <div>Parramatta NSW 2150</div>
             </a>
           </div>
-          <div className="my-5">
+          <div className="mb-5">
             <div className="text-xl">Phone</div>
             <div>02 9139 8874</div>
           </div>
-          <div className="my-5">
+          <div className="mb-5">
             <div className="text-xl">Email</div>
             <div>info@infinikeysolutions.com.au</div>
           </div>
-          <div className="flex w-40 justify-between my-12">
+          <div className="flex w-40 justify-between my-8">
             <a className="w-12" href="https://www.facebook.com/infnikeysolutions">
               <Image src={Facebook} alt="facebook logo" />
             </a>
