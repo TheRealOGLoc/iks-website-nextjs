@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   const body = await request.json();  // Parse request body
-  const { name, companyName, phoneNumber, email, message } = body;  // Destructure required fields
+  const { name, companyName, phoneNumber, email, message, industries } = body;  // Destructure required fields
 
   const fromEmail = process.env.SENDER_EMAIL_ADDRESS;
   const receiveEmail = process.env.RECEIVER_EMAIL_ADDRESS;
@@ -20,7 +20,8 @@ export async function POST(request: Request) {
         companyName: companyName as string,
         phoneNumber: phoneNumber as string,
         email: email as string,
-        message: message as string
+        message: message as string,
+        industries: industries as string
       }),  // Pass more details if needed in the template
     });
 

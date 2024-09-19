@@ -6,10 +6,11 @@ interface EmailTemplateProps {
   phoneNumber: string
   email:string
   message: string
+  industries: string
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  name, companyName, phoneNumber, email, message
+  name, companyName, phoneNumber, email, message, industries
 }) => (
   <div>
     <div>Hi!</div>
@@ -18,6 +19,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     <div>Name: {name}</div>
     <div>Company Name: {companyName}</div>
     <div>Phone Number: {phoneNumber}</div>
+    <div>Industry: {industries}</div>
     <div>Email: {email}</div>
     <div>Message from customer:</div>
     <div>{message}</div>

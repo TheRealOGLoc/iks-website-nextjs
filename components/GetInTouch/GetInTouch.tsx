@@ -22,6 +22,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
     name: "",
     companyName: "",
     phoneNumber: "",
+    industries: "",
     email: "",
     message: "",
   })
@@ -39,6 +40,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
       name: "",
       companyName: "",
       phoneNumber: "",
+      industries: "",
       email: "",
       message: "",
     })
@@ -139,6 +141,14 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                       name='companyName'
                       placeholder='Company Name'
                       value={info.companyName}
+                      onChange={handleChange}
+                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                    />
+                    <input
+                      type="text"
+                      name='industries'
+                      placeholder='Your Industry'
+                      value={info.industries}
                       onChange={handleChange}
                       className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
                     />
