@@ -27,7 +27,7 @@ export default function HomePageSolution({ componentData }: HomePageSolutionProp
         <div className="items-center text-center text-4xl md:text-5xl my-5">
           <div className="home-page-solution poppins-font font-semibold cyan-blue">
             {componentData.titleLeftPart}{" "}
-            <div className=" light-blue text-3xl md:text-5xl">{componentData.titleRightPart}</div>
+            <h1 className=" light-blue text-3xl md:text-5xl">{componentData.titleRightPart}</h1>
           </div>
         </div>
         <div className="inter-font text-zinc-800 max-w-[800px] mx-auto text-lg md:text-xl cyan-blue">
