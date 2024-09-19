@@ -28,25 +28,18 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
   const settingsLTR = {
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 4000,
+    pauseOnHover: false,
     slidesToShow: 6, // Default for desktop (5 logos per row)
     slidesToScroll: 3,
     autoplay: true,
-    autoplaySpeed: 1, // Slide every 3 seconds
+    autoplaySpeed: 0, // Slide every 3 seconds
     responsive: [
       {
         breakpoint: 768, // For mobile view
         settings: {
-          slidesToShow: 6, // Show 4 logos per row on mobile
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 1024, // For tablet and desktop view
-        settings: {
-          slidesToShow: 6, // 5 logos per row for tablet and desktop
-          slidesToScroll: 1,
+          slidesToShow: 3, // Show 4 logos per row on mobile
+          slidesToScroll: 3,
           infinite: true,
         },
       },
@@ -60,7 +53,7 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
   };
 
   return (
-    <div className="mt-[100px] max-w-[1200px] m-auto">
+    <div className="mt-[100px] w-full m-auto">
       <div className="text-center">
         <div className="font-semibold text-5xl poppins-font cyan-blue">
           {componentData.titleLeftPart} <span className="light-blue">{componentData.titleRightPart}</span>

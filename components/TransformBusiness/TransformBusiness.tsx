@@ -26,7 +26,7 @@ export default function TransformBusiness({ componentData }: HomePageTransformBu
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white opacity-40 md:opacity-40"></div>
+      <div className="absolute inset-0 bg-slate-200 opacity-40 md:opacity-70"></div>
 
       {/* Content */}
       <div className="relative text-left max-w-[900px] px-6">

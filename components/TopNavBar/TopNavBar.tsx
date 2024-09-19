@@ -96,7 +96,7 @@ export default function TopNavBar() {
             &times;
           </button>
         </div>
-        <div className="flex flex-col items-start p-4 space-y-2">
+        <div className="flex flex-col items-start px-4 space-y-2">
           <Link className="text-xl font-semibold" href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
 
           {/* Services Dropdown */}
@@ -108,9 +108,9 @@ export default function TopNavBar() {
               </svg>
             </button>
             <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isServicesOpen ? 'max-h-96' : 'max-h-0'}`}>
-              <Link href="/services/management-consulting" className="block mt-2 ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Management consulting</Link>
-              <Link href="/services/policies-and-procedure" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Policies & Procedures</Link>
-              <Link href="/services/custom-software-solution" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Custom Software Solutions</Link>
+              <Link href="/services/management-consulting" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Management consulting</Link>
+              <Link href="/services/policies-and-procedure" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Policies & Procedures</Link>
+              <Link href="/services/custom-software-solution" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Custom Software Solutions</Link>
             </div>
           </div>
 
@@ -123,11 +123,11 @@ export default function TopNavBar() {
               </svg>
             </button>
             <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isIndustriesOpen ? 'max-h-96' : 'max-h-0'}`}>
-              <Link href="/industries/beauty-and-aesthetic" className="block mt-2 ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Beauty and Aesthetics</Link>
-              <Link href="/industries/hospitality-and-tourism" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Hospitality</Link>
-              <Link href="/industries/health-and-community-service" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Health and Community Services</Link>
-              <Link href="/industries/retail" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Retail</Link>
-              <Link href="/industries/technology" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Technology</Link>
+              <Link href="/industries/beauty-and-aesthetic" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Beauty and Aesthetics</Link>
+              <Link href="/industries/hospitality-and-tourism" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Hospitality</Link>
+              <Link href="/industries/health-and-community-service" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Health and Community Services</Link>
+              <Link href="/industries/retail" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Retail</Link>
+              <Link href="/industries/technology" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Technology</Link>
             </div>
           </div>
 
@@ -143,14 +143,14 @@ export default function TopNavBar() {
               </svg>
             </button>
             <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isAboutUsOpen ? 'max-h-96' : 'max-h-0'}`}>
-              <Link href="/about-us" className="block mt-2 ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- About Us</Link>
-              <Link href="/our-team" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Our Team</Link>
-              <Link href="/testimonials" className="block ml-4 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Testimonials</Link>
+              <Link href="/about-us" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- About Us</Link>
+              <Link href="/our-team" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Our Team</Link>
+              <Link href="/testimonials" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Testimonials</Link>
             </div>
           </div>
         </div>
-        <div className="w-full text-black p-4 text-lg">
-          <div className="mb-5">
+        <div className="w-full text-black p-4 text-base">
+          <div className="mb-5 mt-5">
             <div className="text-xl">Location</div>
             <a href="https://goo.gl/maps/XfcxXc8ttaiMrEcm7">
               <div>Level 14, 32 Smith Street</div>

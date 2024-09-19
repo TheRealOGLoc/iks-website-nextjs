@@ -1,30 +1,33 @@
 import Link from "next/link";
 import Subscribe from "./Subscribe";
-import iksLogo from "@/public/logo/infinikey-logo-dark.png"
 
 interface FooterProps {
   componentData: {
     menuDownloads: string;
     buttonText: string;
-    companyAbout: string;
-    companyContactUs: string;
-    companyCareers: string;
+
+    companyAboutUs: string;
+    companyOurTeam: string;
+    companyTestimonials: string;
+    companyPrivacyPolicy: string;
     companyDescription: string;
-    companyHelpCenter: string;
     companyLabel: string;
     companyName: string;
-    companySupport: string;
+
     emailPlaceHolder: string;
     locationAddressLineOne: string;
     locationAddressLineTwo: string;
     locationLabel: string;
     mailAddress: string;
     mailLabel: string;
+
     menuBlogs: string;
     menuCaseStudies: string;
-    menuFeatures: string;
+    menuServices: string;
+    menuIndustries: string;
     menuHome: string;
     menuLabel: string;
+
     phoneLabel: string;
     phoneNumber: string;
     __component: string;
@@ -34,9 +37,9 @@ interface FooterProps {
 export default function Footer({ componentData }: FooterProps) {
   return (
     <footer className="bg-zinc-600 text-gray-200 md:py-12 min-h-[900px] md:min-h-0">
-      <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 py-7 md:space-x-16 px-4">
+      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 py-7 md:space-x-16 px-4">
         {/* Company Info and Newsletter */}
-        <div className="w-full md:w-[700px] h-auto">
+        <div className="w-full md:w-[400px] h-auto">
           <div className="text-2xl font-bold text-white">{componentData.companyName}</div>
           <p className="text-base font-light my-7 max-w-full md:max-w-[350px]">
             {componentData.companyDescription}
@@ -54,23 +57,23 @@ export default function Footer({ componentData }: FooterProps) {
               </Link>
             </li>
             <li>
-              <Link href="/features" className="hover:text-white transition">
-                {componentData.menuFeatures}
+              <Link href="/services" className="hover:text-white transition">
+                {componentData.menuServices}
               </Link>
             </li>
             <li>
-              <Link href="/case-studies" className="hover:text-white transition">
-                {componentData.menuCaseStudies}
-              </Link>
-            </li>
-            <li>
-              <Link href="/downloads" className="hover:text-white transition">
-                {componentData.menuDownloads}
+              <Link href="/industries" className="hover:text-white transition">
+                {componentData.menuIndustries}
               </Link>
             </li>
             <li>
               <Link href="/blogs" className="hover:text-white transition">
                 {componentData.menuBlogs}
+              </Link>
+            </li>
+            <li>
+              <Link href="/case-studies" className="hover:text-white transition">
+                {componentData.menuCaseStudies}
               </Link>
             </li>
           </ul>
@@ -81,28 +84,23 @@ export default function Footer({ componentData }: FooterProps) {
           <div className="text-lg font-bold text-white">{componentData.companyLabel}</div>
           <ul className="mt-4 space-y-2">
             <li>
-              <Link href="/about" className="hover:text-white transition">
-                {componentData.companyAbout}
+              <Link href="/about-us" className="hover:text-white transition">
+                {componentData.companyAboutUs}
               </Link>
             </li>
             <li>
-              <Link href="/contact-us" className="hover:text-white transition">
-                {componentData.companyContactUs}
+              <Link href="/our-team" className="hover:text-white transition">
+                {componentData.companyOurTeam}
               </Link>
             </li>
             <li>
-              <Link href="/careers" className="hover:text-white transition">
-                {componentData.companyCareers}
+              <Link href="/testimonials" className="hover:text-white transition">
+                {componentData.companyTestimonials}
               </Link>
             </li>
             <li>
-              <Link href="/help-center" className="hover:text-white transition">
-                {componentData.companyHelpCenter}
-              </Link>
-            </li>
-            <li>
-              <Link href="/support" className="hover:text-white transition">
-                {componentData.companySupport}
+              <Link href="/privacy-policy" className="hover:text-white transition">
+                {componentData.companyPrivacyPolicy}
               </Link>
             </li>
           </ul>

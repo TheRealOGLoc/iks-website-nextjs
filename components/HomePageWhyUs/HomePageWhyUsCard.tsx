@@ -24,7 +24,7 @@ export default function HomePageWhyUsCard({ image, title, text, index }: HomePag
       }}
       transition={{ duration: 0.5, delay: delayTime }}
       ref={showUpRef}
-      className="inter-font bg-gray-600 md:hover:bg-gray-500 transition mx-2 my-2 p-5 md:p-7 rounded-md text-center w-[calc(50%-1rem)] md:w-[390px] text-white">
+      className="inter-font bg-gray-600 md:hover:bg-gray-500 md:transition mx-2 my-2 p-5 md:p-7 rounded-md text-center w-[calc(50%-1rem)] md:w-[390px] text-white">
       <img className="w-[49px] m-auto" src={image.icon.data.attributes.url} alt={image.icon.data.attributes.alternativeText} title={image.icon.data.attributes.caption} />
       <div className="font-bold my-2">{title}</div>
       <div>{text}</div>

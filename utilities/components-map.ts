@@ -51,6 +51,9 @@ import IndustrySectorPageOurSolution from "../components/IndustrySectorPageOurSo
 import TestimonialsPageHero from "@/components/TestimonialsPageHero/TestimonialsPageHero";
 import TestimonialsPageSlider from "@/components/TestimonialsPageSlider/TestimonialsPageSlider";
 
+import PrivacyPageHero from "@/components/PrivacyPageHero/PrivacyPageHero";
+import PrivacyPageContent from "@/components/PrivacyPageContent/PrivacyPageContent";
+
 import TransformBusiness from "../components/TransformBusiness/TransformBusiness";
 import Footer from "../components/Footer/Footer";
 
@@ -130,6 +133,11 @@ export const caseStudyDetailPageComponentMap = {
 export const testimonialsPageComponentMap = {
   'hero': TestimonialsPageHero,
   'testimonials': TestimonialsPageSlider
+}
+
+export const privacyPageComponentMap = {
+  'hero': PrivacyPageHero,
+  'privacy-policy-content': PrivacyPageContent
 }
 
 export const globalComponentMap = {
