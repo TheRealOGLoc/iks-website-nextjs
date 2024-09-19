@@ -29,3 +29,8 @@
 .bg-dark-blue {
   background-color: #00418A;
 }
+
+.description-justify {
+  text-align: justify;
+  text-justify: inter-character;
+}

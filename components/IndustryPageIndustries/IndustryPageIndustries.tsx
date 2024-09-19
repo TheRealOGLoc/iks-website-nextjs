@@ -17,7 +17,7 @@ export default function IndustryPageIndustries({componentData}: IndustryPageIndu
         <div className="poppins-font text-4xl font-bold text-gray-500"><span>{componentData.titleLeftPart}</span> <span  className="light-blue">{componentData.titleRightPart}</span></div>
         <div className="max-w-[800px] my-5 m-[auto] text-lg font-medium">{componentData.description}</div>
       </div>
-      <div className="flex flex-wrap flex-col md:flex-row justify-between max-w-[1000px] m-[auto] mt-5">
+      <div className="flex flex-wrap flex-col md:flex-row justify-between max-w-[1500px] m-[auto] mt-5">
         { componentData.card && componentData.card.map((content : any, index: number) => <IndustryCard title={content.title} description={content.description} image={content.image} showButton={content.showButton} buttonText={content.buttonText} buttonUrl={content.buttonUrl} index={index} key={index} />) }
       </div>
     </div>
