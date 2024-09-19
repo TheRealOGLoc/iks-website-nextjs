@@ -26,7 +26,7 @@ export default function CardLink({ buttonText, buttonUrl }: CardLink) {
           duration: 0.6,
           delay: 0.3}}
         ></motion.div>
-      <Link href={`/services/${buttonUrl}`} className="text-white bg-light-blue hover:bg-blue-600 transition text-sm p-3">{buttonText}</Link>
+      <Link href={`/services/${buttonUrl}`} className="text-white font-semibold bg-light-blue hover:bg-blue-600 transition text-sm p-3">{buttonText}</Link>
     </div>
   )
 }

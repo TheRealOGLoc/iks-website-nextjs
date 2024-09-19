@@ -25,7 +25,7 @@ export default function SolutionCard({ title, description, icon, index }: Soluti
 
       }}
       transition={{ duration: 0.5, ease: "easeInOut", delay: delayTime }}
-      className="my-2 text-white basis-1/3 max-w-[350px] text-center inter-font p-5 rounded-lg border-[1px] bg-gray-600 hover:bg-gray-500 transition">
+      className="my-2 text-white basis-1/3 max-w-[350px] text-center inter-font p-5 rounded-lg border-[1px] bg-gray-600 md:hover:bg-gray-500 md:transition">
       <img className="w-[49px] m-[auto]" src={icon.data.attributes.url} alt={icon.data.attributes.alternativeText} title={icon.data.attributes.caption} />
       <div className="my-3 font-semibold">{title}</div>
       <div>{description}</div>

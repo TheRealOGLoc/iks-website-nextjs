@@ -29,7 +29,7 @@ export default function IndustryCard({ title, description, image, showButton, bu
 
   return (
     <div
-      className="mx-auto md:basis-1/3 my-3 text-left shadow-md hover:bg-slate-100 transition hover:shadow-lg max-w-[300px] min-h-[550px] relative">
+      className="mx-auto md:basis-1/3 my-3 text-left shadow-md md:hover:bg-slate-100 md:transition md:hover:shadow-lg max-w-[300px] min-h-[550px] relative">
       <img className="m-[auto]" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
       <motion.div
       ref={showUpRef}
@@ -43,12 +43,12 @@ export default function IndustryCard({ title, description, image, showButton, bu
         delay: delayTime
       }}
       className="p-5">
-        <div className="my-3 font-semibold">{title}</div>
+        <div className="my-3 font-semibold text-center">{title}</div>
         <div className="text-sm font-light mb-2">{description}</div>
         
       </motion.div>
       {
-          showButton && <Link className="absolute rounded-full bottom-5 left-5 p-3 h-12 text-white bg-blue-600 hover:shadow-lg hover:bg-blue-500 no-underline hover:underline-offset-4 hover:underline transition duration-200 text-base font-semibold" href={buttonUrl} >
+          showButton && <Link className="absolute rounded-full bottom-5 left-20 p-3 h-12 text-white bg-blue hover:shadow-lg hover:bg-[#70B9DF] no-underline hover:underline-offset-4 hover:underline transition duration-200 text-base font-semibold" href={buttonUrl} >
             <div className="">
               {buttonText}
             </div>

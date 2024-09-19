@@ -32,7 +32,7 @@ export default function HomePageNumbersCard({ data, title, text, plusSign }: Hom
 
   return (
     <motion.div
-      className="w-[350px] md:w-[300px] text-center border-solid border-slate-150 rounded-lg border-[1px] shadow-lg mx-auto my-2 md:m-2 p-5 hover:scale-105 transition ease-in-out"
+      className="w-[350px] md:w-[300px] text-center border-solid border-slate-150 rounded-lg border-[1px] shadow-lg mx-auto my-2 md:m-2 p-5 md:hover:scale-105 md:transition md:ease-in-out"
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 1, delay: 0.5 }}

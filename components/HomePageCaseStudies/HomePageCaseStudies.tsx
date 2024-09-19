@@ -103,7 +103,7 @@ export default function HomePageCaseStudies({ componentData }: HomePageCaseStudi
         </div>
       </div>
       <div className="mt-6 text-center">
-        <Link href={`/case-studies`} className="text-white bg-light-blue hover:bg-blue-600 transition text-sm p-3 mt-3">{componentData.buttonText}</Link>
+        <Link href={`/case-studies`} className="text-white bg-light-blue hover:bg-blue-600 transition text-sm p-3 mt-3 font-semibold">{componentData.buttonText}</Link>
       </div>
     </div>
   );
