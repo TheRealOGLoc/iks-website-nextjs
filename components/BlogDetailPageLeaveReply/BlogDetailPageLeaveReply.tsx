@@ -91,7 +91,7 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
             placeholder="Type your message here..."
           />
         </div>
-        <input type="submit" value={`${componentData.buttonText} →`} className="mt-4 rounded-md bg-blue-400 text-white p-2 px-5" />
+        <input type="submit" value={`${componentData.buttonText} →`} className="mt-4 rounded-md bg-blue text-white p-2 px-5" />
       </form>
     </div>
   );

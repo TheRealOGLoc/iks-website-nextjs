@@ -18,7 +18,7 @@ interface BlogDetailPageContentProps {
 
 export default function BlogDetailPageContent({ componentData }: BlogDetailPageContentProps) {
   return (
-    <div className="p-7 md:p-[100px] inter-font ">
+    <div className="p-7 md:px-[100px] md:pt-[100px] inter-font ">
       <div className="max-w-[1000px] m-[auto]">
         <div className="flex my-3 font-semibold ">
           <Link className="hidden md:block" href="/blogs">All Blogs</Link>

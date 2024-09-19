@@ -1,3 +1,7 @@
+"use client"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+
 interface Children {
   text: string,
   type: string
@@ -21,6 +25,10 @@ interface CaseCardProps {
   }
 }
 export default function CaseCard({ componentData }: CaseCardProps) {
+  
+  const showUpRef = useRef(null)
+  const isInView = useInView(showUpRef, { once: true })
+  
   return (
     <div className="max-w-[350px] my-3 md:max-w-[380px] shadow-xl mx-auto min-h-[430px] md:max-h-[500px] transition hover:shadow-2xl">
       <div className="mt-12 w-[290px] md:w-[350px] mx-auto md:overflow-hidden">
@@ -31,7 +39,18 @@ export default function CaseCard({ componentData }: CaseCardProps) {
           title={componentData.blogImage.data.attributes.caption}
         />
       </div>
-      <div className="p-7">
+      <motion.div
+      ref={showUpRef}
+      initial={{ y: 15, opacity: 0.2 }}
+      animate={{
+        y: isInView ? 0 : 15,
+        opacity: isInView ? 1 : 0.2,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: 0.5
+      }}
+      className="p-7">
         <a className="flex items-start hover:underline" href={`/case-studies/${componentData.slug}`}>
           <div className="font-bold text-2xl my-2">{componentData.title}</div>
           <svg
@@ -52,7 +71,7 @@ export default function CaseCard({ componentData }: CaseCardProps) {
         <div className="multiline-ellipsis text-lg my-2 text-gray-500">
           {componentData.content[0].children[0].text}
         </div>
-      </div>
+      </motion.div>
 
     </div>
   )

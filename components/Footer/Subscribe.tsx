@@ -63,7 +63,7 @@ export default function Subscribe({ componentData }: SubscribeProps) {
       <input 
         type="submit" 
         value={componentData.buttonText} 
-        className="mt-4 w-[150px] md:w-[150px] bg-blue-400 text-white py-3 px-4 font-semibold rounded-full hover:bg-blue-500 transition"
+        className="mt-4 w-[150px] md:w-[150px] bg-blue text-white py-3 px-4 font-semibold rounded-full hover:bg-blue-500 transition cursor-pointer"
       />
       {error && <span className="text-red-500 mt-2">{error}</span>} {/* Display error message */}
       {success && <span className="text-green-400 mt-2">{success}</span>}

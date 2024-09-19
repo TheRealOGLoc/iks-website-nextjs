@@ -48,7 +48,7 @@ export default async function BlogsPage() {
 
   return (
     <Suspense>
-      <div className='w-screen'>
+      <div className=''>
         <TopNavBar />
         {blogsData && (
           <DynamicZone
