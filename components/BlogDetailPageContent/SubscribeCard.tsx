@@ -45,7 +45,7 @@ export default function SubscribeCard() {
   };
 
   return (
-    <div className="my-20 md:my-0 text-center md:text-left inter-font max-w-[400px]">
+    <div className="my-10 md:my-0 text-center md:text-left inter-font max-w-[400px]">
       <div className="text-4xl font-extrabold md:text-xl md:font-bold">Subscribe to our newsletter</div>
       <div className="my-2 font-medium text-sm md:my-0 md:font-normal md:text-base">Subscribe to receive the latest posts to your inbox every week.</div>
       <form onSubmit={handleSubmit}>

@@ -128,9 +128,9 @@ export async function GetAllBlogsData(query: { [key: string]: any }, contentType
   const url = queryPopulate(query, contentType);
   const data = await fetch(url, config)
   const response = await data.json()
+  const paginationData = response.meta?.pagination
   let blogsData = response.data;
   let blogs: any[] = [];
-
   for (let i = 0; i < blogsData.length; i++) {
     const slug = blogsData[i].attributes.slug
     for (let j = 0; j < blogsData[i].attributes.components.length; j++) {
@@ -143,7 +143,7 @@ export async function GetAllBlogsData(query: { [key: string]: any }, contentType
   }
   blogs = sortBlogsByPostTime(blogs);
   blogs = modifyBlogs(blogs);
-  return blogs;
+  return {blogs, paginationData};
 }
 
 interface Blog {

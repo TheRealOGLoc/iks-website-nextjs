@@ -24,7 +24,7 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
     },
   }
 
-
+  const [total, setTotal] = useState<number | null>(null)
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("query") ?? "";
   const [showBlogs] = useState<boolean>(componentData.showAllBlogs)
@@ -42,8 +42,8 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
         pageSize: 9
       }
     }
-    const response = await GetAllBlogsData({ ...query, ...currentPage }, contentType, searchQuery, renderConfig);
-    const newData = blogsData?.concat(response as [])
+    const {blogs} = await GetAllBlogsData({ ...query, ...currentPage }, contentType, searchQuery, renderConfig);
+    const newData = blogsData?.concat(blogs as [])
     
     setBlogsData(newData as [])
   };
@@ -57,8 +57,11 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
           pageSize: 9
         }
       }
-      const response = await GetAllBlogsData({ ...query, ...currentPage }, contentType, searchQuery, renderConfig)
-      setBlogsData(response as [])
+      const {blogs, paginationData} = await GetAllBlogsData({ ...query, ...currentPage }, contentType, searchQuery, renderConfig)
+      if (total === null) {
+        setTotal(paginationData.total)
+      }
+      setBlogsData(blogs as [])
     }
     if (componentData.showAllBlogs) {
       getBlogs()
@@ -81,7 +84,7 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
             </div>
           }
           {
-            searchQuery === "" && blogsData && blogsData?.length % 9 === 0 &&
+            searchQuery === "" && blogsData && blogsData?.length !== total &&
             <button className="mt-6 cursor-pointer block bg-blue m-auto text-white poppins-font text-xl p-4 font-semibold rounded-xl hover:bg-[#70B9DF] transition" onClick={_handleShowMore} >Show more</button>
           }
         </div>

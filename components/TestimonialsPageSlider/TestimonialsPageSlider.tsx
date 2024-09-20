@@ -25,7 +25,7 @@ export default function TestimonialsPageSlider({ componentData }: TestimonialsPr
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // 5 seconds interval
+    }, 8000); // 5 seconds interval
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [testimonials.length]);

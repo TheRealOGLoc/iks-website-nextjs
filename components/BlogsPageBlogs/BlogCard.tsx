@@ -32,7 +32,7 @@ export default function BlogCard({ componentData }: BlogCardProps) {
 
   return (
     <div className="overflow-hidden max-w-[350px] my-3 md:max-w-[380px] p-7 shadow-xl mx-auto min-h-[500px] md:max-h-[550px] hover:bg-slate-50 transition hover:shadow-2xl">
-      <div className="max-w-[350px] h-[250px] overflow-hidden">
+      <div className="max-w-[350px] h-[200px] mb-5 overflow-hidden">
         <img
           className="h-[200px] object-cover"
           src={componentData.blogImage.data.attributes.url}
