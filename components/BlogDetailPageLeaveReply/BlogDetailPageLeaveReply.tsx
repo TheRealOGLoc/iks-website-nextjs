@@ -53,7 +53,7 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
     if (submitted) {
       return
     }
-    if (inputValue.comment == "") {
+    if (inputValue.comment.trim() == "") {
       setError("Message can not be empty.")
       return
     }

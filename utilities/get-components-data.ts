@@ -23,6 +23,32 @@ export async function GetData(query: { [key: string]: any }, contentType: string
   return components;
 }
 
+export async function GetComments(type: string, slug: string, config?: {}) {
+  const query = {
+    filters: {
+      type: { $eq: type },
+      slug: { $eq: slug }
+    }
+  }
+  
+  const url = queryPopulate(query, "comments");
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const response = await fetch(url, fetchConfig);
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  const data = await response.json();
+  
+
+  return data;
+}
+
 export async function GetSeoData(query: {}, contentType: string, config?: {}) {
   const SEOComponentName = "global-elements.seo"
   const url = queryPopulate(query, contentType);

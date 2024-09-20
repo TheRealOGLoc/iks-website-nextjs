@@ -3,6 +3,7 @@ import { formatDate } from "../../utilities/format-data"
 import RichTextRenderer from "./RichTextRenderer"
 import SubscribeCard from "./SubscribeCard"
 import DetailPageShareButton from "../DetailPageShareButton/DetailPageShareButton"
+import DetailPageComments from "../DetailPageComments/DetailPageComments"
 
 interface BlogDetailPageContentProps {
   componentData: {
@@ -40,6 +41,7 @@ export default function BlogDetailPageContent({ componentData }: BlogDetailPageC
           <div className="max-w-[800px]" >
             <RichTextRenderer nodes={componentData.content} />
             <DetailPageShareButton/>
+            <DetailPageComments/>
           </div>
           {
             componentData.showSubscribeCard ? <SubscribeCard /> : ""
