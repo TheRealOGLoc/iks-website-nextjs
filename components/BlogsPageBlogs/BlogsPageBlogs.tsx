@@ -44,7 +44,6 @@ export default function BlogsPageBlogs({ componentData }: BlogsPageBlogsProps) {
     }
     const {blogs} = await GetAllBlogsData({ ...query, ...currentPage }, contentType, searchQuery, renderConfig);
     const newData = blogsData?.concat(blogs as [])
-    
     setBlogsData(newData as [])
   };
 
