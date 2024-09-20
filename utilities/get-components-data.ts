@@ -2,7 +2,14 @@ import { queryPopulate } from "./query-populate"
 
 export async function GetData(query: { [key: string]: any }, contentType: string, config?: {}) {
   const url = queryPopulate(query, contentType);
-  const response = await fetch(url, config);
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const response = await fetch(url, fetchConfig);
   if (!response.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -19,7 +26,14 @@ export async function GetData(query: { [key: string]: any }, contentType: string
 export async function GetSeoData(query: {}, contentType: string, config?: {}) {
   const SEOComponentName = "global-elements.seo"
   const url = queryPopulate(query, contentType);
-  const response = await fetch(url, config);
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const response = await fetch(url, fetchConfig);
   if (!response.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -37,7 +51,14 @@ export async function GetSeoData(query: {}, contentType: string, config?: {}) {
 export async function GetCaseStudiesData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const data = await fetch(url, config)
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const data = await fetch(url, fetchConfig)
   const response = await data.json()
   let blogsData = response.data;
   let blogs: any[] = [];
@@ -60,7 +81,14 @@ export async function GetCaseStudiesData(query: {}, contentType: string, config?
 export async function GetBlogsData(query: {}, contentType: string, config?: {}) {
   const componentName = "blogs-elements.blog-content";
   const url = queryPopulate(query, contentType);
-  const data = await fetch(url, config)
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const data = await fetch(url, fetchConfig)
   const response = await data.json()
   let blogsData = response.data;
   let blogs: any[] = [];
@@ -93,9 +121,14 @@ export async function GetAllCaseStudiesData(query: { [key: string]: any }, conte
     }
   }
   const url = queryPopulate(query, contentType);
-  console.log(searchQuery)
-  console.log(url)
-  const data = await fetch(url, config)
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const data = await fetch(url, fetchConfig)
   const response = await data.json()
   let blogsData = response.data;
   let blogs: any[] = [];
@@ -126,7 +159,14 @@ export async function GetAllBlogsData(query: { [key: string]: any }, contentType
     }
   }
   const url = queryPopulate(query, contentType);
-  const data = await fetch(url, config)
+  const fetchConfig = {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    ...config,
+  };
+  const data = await fetch(url, fetchConfig)
   const response = await data.json()
   const paginationData = response.meta?.pagination
   let blogsData = response.data;

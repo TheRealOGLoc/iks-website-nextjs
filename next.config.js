@@ -6,7 +6,8 @@ const nextConfig = {
     GOOGLE_MAP_ADDRESS_URL: process.env.GOOGLE_MAP_ADDRESS_URL,
     WEBSITE_URL: process.env.WEBSITE_URL,
     STRAPI_API:process.env.STRAPI_API,
-    LOCALHOST_API:process.env.LOCALHOST_API
+    LOCALHOST_API:process.env.LOCALHOST_API,
+    STRAPI_TOKEN:process.env.STRAPI_TOKEN
   }
 }
 

@@ -24,8 +24,8 @@ export default async function BlogDetailPage({ params }: Params) {
     next: { revalidate: 60 }
   }
   const blogDetailData = await GetData(query, contentType, renderConfig);
-  const util = require("util")
-  console.log(util.inspect(blogDetailData[0], { depth: null }))
+  // const util = require("util")
+  // console.log(util.inspect(blogDetailData[0], { depth: null }))
   return (
     <div className=''>
       <TopNavBar />

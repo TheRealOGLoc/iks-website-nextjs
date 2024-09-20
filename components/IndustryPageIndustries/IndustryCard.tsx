@@ -29,7 +29,7 @@ export default function IndustryCard({ title, description, image, showButton, bu
 
   return (
     <div
-      className="mx-auto md:basis-1/3 my-3 text-left shadow-md md:hover:bg-slate-100 md:transition md:hover:shadow-lg max-w-[480px] min-h-[580px] relative">
+      className="mx-auto my-3 text-left shadow-md md:hover:bg-slate-100 md:transition md:hover:shadow-lg max-w-[480px] min-h-[580px] relative">
       <img className="m-[auto]" src={image.data.attributes.url} alt={image.data.attributes.alternativeText} title={image.data.attributes.caption} />
       <motion.div
         ref={showUpRef}
