@@ -11,15 +11,15 @@ export function formatCommentData(dataString: string): string {
   const date = new Date(dataString);
 
   // Create options for formatting
-  const options = {
+  
+
+  // Format the date using Intl.DateTimeFormat
+  return new Intl.DateTimeFormat('en-US', {
     year: "numeric",
     month: 'long',
     day: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
     hour12: true
-  };
-
-  // Format the date using Intl.DateTimeFormat
-  return new Intl.DateTimeFormat('en-US', options).format(date);
+  }).format(date);
 }
