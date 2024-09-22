@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { SendMessage } from '@/utilities/post-email';
-import GetInTouchImage from "@/public/image/GetInTouch.jpg"
+import GetInTouchImage from "@/public/image/GetInTouch.png"
 
 interface GetInTouch {
   buttonText: string;
@@ -113,7 +113,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
               &#x2715; {/* Close button */}
             </button>
             <div className='md:flex md:items-center'>
-              <div className='hidden md:block max-w-[400px] md:h-[750px]'>
+              <div className='hidden md:block w-[1200px] md:h-[750px]'>
                 <Image
                   src={GetInTouchImage}
                   alt=""
