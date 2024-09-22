@@ -46,7 +46,7 @@ export async function GetComments(type: string, slug: string, config?: {}) {
   const data = await response.json();
   
 
-  return data;
+  return data.data;
 }
 
 export async function GetSeoData(query: {}, contentType: string, config?: {}) {

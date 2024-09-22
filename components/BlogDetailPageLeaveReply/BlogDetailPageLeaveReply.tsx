@@ -53,12 +53,24 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
     if (submitted) {
       return
     }
-    if (inputValue.comment.trim() == "") {
-      setError("Message can not be empty.")
+    // Check if name, email, and comment are not empty
+    if (inputValue.name.trim() === "") {
+      setError("Name cannot be empty.")
       return
     }
+
+    if (inputValue.email.trim() === "") {
+      setError("Email cannot be empty.")
+      return
+    }
+
+    if (inputValue.comment.trim() === "") {
+      setError("Message cannot be empty.")
+      return
+    }
+
     try {
-      const response = await PostComment({comment:inputValue})
+      const response = await PostComment({ comment: inputValue })
       if (response.status === 200 || response.statusText === "OK") {
         setSubmitted(true)
       } else {
@@ -70,18 +82,20 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
       setSubmitted(true)
     }
     setError(null)
+    setSubmitted(true)
+    location.reload()
   }
 
   return (
-    <div className="p-7 md:max-w-[1200px] md:mx-auto my-10 md:my-0 md:px-[100px]">
-      <div className="text-center">
+    <div className="p-7 md:max-w-[1200px] md:mx-auto md:px-[100px]">
+      <div className="text-left">
         <div className="text-5xl font-extrabold my-5">{componentData.title}</div>
-        <div className="inter-font text-zinc-800 max-w-[800px] mx-auto text-md cyan-blue">{componentData.subtitle}</div>
+        <div className="inter-font text-zinc-800 max-w-[800px] text-md cyan-blue">{componentData.subtitle}</div>
       </div>
       <form onSubmit={_handleSubmit} className="flex flex-col items-start inter-font mt-10">
         <div className="flex space-x-4 w-full">
           <div className="w-full block">
-            <label className="font-semibold">{componentData.nameLabel}</label> <br />
+            <label className="font-semibold">{componentData.nameLabel} *</label> <br />
             <input
               className="h-10 w-full  drop-shadow-md p-2"
               type="text"
@@ -92,7 +106,7 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
             />
           </div>
           <div className="w-full block">
-            <label className="font-semibold">{componentData.emailLabel}</label> <br />
+            <label className="font-semibold">{componentData.emailLabel} *</label> <br />
             <input
               className="h-10 w-full drop-shadow-md p-2"
               type="text"
@@ -124,9 +138,9 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
             placeholder="Type your message here..."
           />
         </div>
-        <input type="submit" value={`${componentData.buttonText} →`} className="mt-4 rounded-md bg-blue text-white p-2 px-5" />
+        <input type="submit" value={`${componentData.buttonText} →`} className="mt-4 rounded-md bg-[#1D68AE] hover:bg-[#70B9DF] transition text-white p-2 px-5 cursor-pointer" />
       </form>
-      { error && <div className="text-red-400">{error}</div> }
+      {error && <div className="text-red-400">{error}</div>}
     </div>
   );
 }

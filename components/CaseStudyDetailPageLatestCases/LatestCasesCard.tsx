@@ -23,7 +23,7 @@ interface LatestCasesProps {
 export default function LatestCasesCard({ componentData }: LatestCasesProps) {
 
   return (
-    <div className="max-w-[450px] p-7 md:p-0 md:shadow-md md:hover:shadow-xl transition md:min-h-[470px] latest-post-card">
+    <div className="md:max-w-[350px] mb-9 p-7 md:p-0 md:shadow-md md:hover:shadow-xl transition md:min-h-[470px] latest-post-card">
       <img className="mx-[auto] overflow-hidden" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       <div className="md:p-7">
         <div className="font-bold text-2xl my-5 md:my-2">{componentData.title}</div>

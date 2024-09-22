@@ -5,6 +5,7 @@ import RichTextRenderer from "../BlogDetailPageContent/RichTextRenderer"
 import SubscribeCard from "../BlogDetailPageContent/SubscribeCard"
 import { useState } from "react"
 import DetailPageShareButton from "../DetailPageShareButton/DetailPageShareButton"
+import DetailPageComments from "../DetailPageComments/DetailPageComments"
 
 interface CaseStudyDetailPageContentProps {
   componentData: {
@@ -22,7 +23,7 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
   const [blogDate] = useState<string>(formatDate(componentData.postTime));
 
   return (
-    <div className="p-7 md:p-[100px] inter-font ">
+    <div className="p-7 md:px-[100px] inter-font ">
       <div className="max-w-[1000px] m-[auto]">
         <div className="flex my-3 font-semibold ">
           <Link className="hidden md:block" href="/blogs">All Case Studies</Link>
@@ -39,15 +40,16 @@ export default function CaseStudyDetailPageContent({ componentData }: CaseStudyD
         <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>
 
-      <div className="max-w-[1250px] mx-auto">
-        <div className="flex justify-between items-center flex-wrap">
-          <div className="max-w-[800px]" >
+      <div className="max-w-[1000px] mx-auto">
+        <div className="">
+          <div className="max-w-[1000px]" >
             <RichTextRenderer nodes={componentData.content} />
-            <DetailPageShareButton/>
-          </div>
-          {
+            {
             componentData.showSubscribeCard ? <SubscribeCard /> : ""
-          }
+            }
+            <DetailPageShareButton/>
+            <DetailPageComments/>
+          </div>
         </div>
       </div>
     </div>

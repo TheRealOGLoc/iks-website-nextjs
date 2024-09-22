@@ -25,9 +25,9 @@ interface LatestPostProps {
 export default function LatestPostCard({ componentData }: LatestPostProps) {
 
   return (
-    <div className="max-w-[450px] p-7 md:p-0 md:shadow-md md:hover:shadow-xl hover:bg-slate-50 transition md:min-h-[470px] latest-post-card mb-9">
+    <div className="max-w-[350px] p-7 md:p-0 md:shadow-md md:hover:shadow-xl hover:bg-slate-50 transition md:min-h-[400px] latest-post-card mb-9">
       <img className="mx-[auto] overflow-hidden" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
-      <div className="md:p-7">
+      <div className="md:p-5">
         <div className="font-bold text-2xl my-5 md:my-2">{componentData.title}</div>
         <div className="multiline-ellipsis text-base my-2 text-gray-600">{componentData.content[0].children[0].text}</div>
         <div className="my-4 font-semibold flex">

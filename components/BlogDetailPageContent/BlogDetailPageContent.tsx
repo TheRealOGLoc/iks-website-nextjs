@@ -35,17 +35,17 @@ export default function BlogDetailPageContent({ componentData }: BlogDetailPageC
         <div className="my-3 block font-semibold md:hidden">{formatDate(componentData.postTime)}</div>
         <img className="my-10" src={componentData.blogImage.data.attributes.url} alt={componentData.blogImage.data.attributes.alternativeText} title={componentData.blogImage.data.attributes.caption} />
       </div>
-      
-      <div className="max-w-[1250px] mx-auto">
-        <div className="flex justify-between items-center flex-wrap">
-          <div className="max-w-[800px]" >
+
+      <div className="max-w-[1000px] mx-auto">
+        <div className="">
+          <div className="max-w-[1000px]" >
             <RichTextRenderer nodes={componentData.content} />
-            <DetailPageShareButton/>
-            <DetailPageComments/>
+            {
+              componentData.showSubscribeCard && <SubscribeCard />
+            }
+            <DetailPageShareButton />
+            <DetailPageComments />
           </div>
-          {
-            componentData.showSubscribeCard ? <SubscribeCard /> : ""
-          }
         </div>
       </div>
     </div>

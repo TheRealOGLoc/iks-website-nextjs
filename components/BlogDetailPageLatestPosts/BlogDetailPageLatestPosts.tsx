@@ -40,12 +40,12 @@ export default function BlogDetailPageLatestPosts({ componentData }: BlogDetailP
     <div>
       {
         showBlogs &&
-          <div className="max-w-[1400px] m-[auto]">
+          <div className="max-w-[1100px] m-[auto]">
             <div className="flex inter-font items-center my-8">
               <div className="mx-auto md:mx-0 text-center text-5xl font-extrabold">Latest posts</div>
               <div className="border-[1px] hover:bg-black hover:text-white transition p-1 px-2 border-gray-500 mx-5 cursor-pointer hidden md:block"><Link href={"/blogs"}>View all</Link></div>
             </div>
-            <div className="flex m-[auto] md:justify-between flex-wrap max-w-[1400px]">
+            <div className="flex m-[auto] md:justify-between flex-wrap">
               {
                 blogsData?.map((blog, index) => <LatestPostCard componentData={blog} key={index} />)
               }

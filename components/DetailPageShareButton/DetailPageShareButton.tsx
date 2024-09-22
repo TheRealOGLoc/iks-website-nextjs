@@ -19,7 +19,7 @@ export default function DetailPageShareButton() {
   }
   return (
     <div className='my-5'>
-      <div className='font-bold md:text-lg ml-1'>Share this post</div>
+      <div className='font-bold md:text-lg ml-1 poppins-font'>Share this post</div>
       <ShareSocial url={pathName} style={style} socialTypes={['linkedin', 'twitter', 'facebook']} />
     </div>
 
