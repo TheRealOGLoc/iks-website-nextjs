@@ -1,12 +1,12 @@
-import HomePageWhyUsCard from "./HomePageWhyUsCard"
+import HomePageWhyUsCard from "./HomePageWhyUsCard";
 
 interface HomePageWhyUsProps {
   componentData: {
-    __component: string,
-    titleLeftPart: string,
-    titleRightPart: string,
-    [key: string]: any
-  }
+    __component: string;
+    titleLeftPart: string;
+    titleRightPart: string;
+    [key: string]: any;
+  };
 }
 
 export default function HomePageWhyUs({ componentData }: HomePageWhyUsProps) {
@@ -19,7 +19,7 @@ export default function HomePageWhyUs({ componentData }: HomePageWhyUsProps) {
             <span className="light-blue">{componentData.titleRightPart}</span>?
           </p>
         </div>
-        <div className="flex flex-wrap -mx-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {componentData.card.map((data: any, index: number) => (
             <HomePageWhyUsCard
               image={data}

@@ -18,7 +18,7 @@ interface HomePageHeroProps {
 export default function HomePageHero({ componentData }: HomePageHeroProps) {
   return (
     <div
-      className="relative  h-screen text-white background-animate"
+      className="h-[800px] relative text-white background-animate"
       style={{ backgroundImage: `url(${componentData.heroBackground.data.attributes.url})` }}
     >
       <div className="absolute w-[100%] md:w-[50%] inset-0 bg-black bg-opacity-20 md:bg-opacity-30"></div>

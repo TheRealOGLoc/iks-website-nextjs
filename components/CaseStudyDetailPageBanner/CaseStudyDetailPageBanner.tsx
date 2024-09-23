@@ -22,7 +22,7 @@ export default function CaseStudyDetailPageBanner({ componentData }: CaseStudyDe
 
       {/* Desktop Image */}
       <div
-        className="bg-cover bg-center hidden md:block h-screen"
+        className="bg-cover bg-center hidden md:block h-[800px]"
         style={{ backgroundImage: `url(${componentData.heroBackground.data.attributes.url})` }}
       ></div>
 

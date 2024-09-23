@@ -20,12 +20,12 @@ interface HomePageServiceCardProps {
 export default function HomePageServiceCard({ image, mobileViewImage, title, text, buttonText, buttonUrl }: HomePageServiceCardProps) {
 
   return (
-    <div className="inter-font mb-12 md:mb-0 text-center md:text-left">
-      <img className="w-[64px] h-[64px] mb-3 mx-auto hidden md:mx-0 md:block" src={image.url} alt={image.alternativeText} title={image.caption} />
+    <div className="inter-font max-w-[360px] mb-12 md:mb-0 text-center md:text-left">
+      <img className="w-[64px] h-[64px] mb-3 hidden mx-auto md:block" src={image.url} alt={image.alternativeText} title={image.caption} />
       <img className="w-[256px] mb-3 mx-auto block md:mx-0 md:hidden" src={mobileViewImage.url} alt={mobileViewImage.alternativeText} title={mobileViewImage.caption} />
-      <div className="font-bold text-xl">{title}</div>
-      <div className="max-w-[350px] m-auto inter-font">{text}</div>
-      <div className="mt-3">
+      <div className="font-bold text-center text-xl">{title}</div>
+      <div className="max-w-[350px] m-auto text-center inter-font">{text}</div>
+      <div className="mt-3 w-[120px] mx-auto">
         <CardLink buttonText={buttonText} buttonUrl={buttonUrl} />
       </div>
     </div>
