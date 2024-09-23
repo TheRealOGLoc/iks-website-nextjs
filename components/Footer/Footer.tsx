@@ -44,7 +44,7 @@ export default function Footer({ componentData }: FooterProps) {
           <p className="text-base font-light my-7 max-w-full md:max-w-[350px]">
             {componentData.companyDescription}
           </p>
-            <Subscribe componentData={componentData} />
+          <Subscribe componentData={componentData} />
         </div>
 
         {/* Menu Links */}
@@ -109,8 +109,10 @@ export default function Footer({ componentData }: FooterProps) {
         {/* Contact Information */}
         <div className="flex-1 poppins-font">
           <div className="text-lg font-bold text-white">{componentData.locationLabel}</div>
-          <p>{componentData.locationAddressLineOne}</p>
-          <p>{componentData.locationAddressLineTwo}</p>
+          <Link href={"https://goo.gl/maps/XfcxXc8ttaiMrEcm7"}>
+            <p>{componentData.locationAddressLineOne}</p>
+            <p>{componentData.locationAddressLineTwo}</p>
+          </Link>
           <div className="text-lg font-bold text-white mt-2">{componentData.phoneLabel}</div>
           <p>{componentData.phoneNumber}</p>
 
