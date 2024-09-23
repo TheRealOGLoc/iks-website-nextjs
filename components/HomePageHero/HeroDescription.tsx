@@ -12,7 +12,7 @@ interface HeroDescriptionProps {
 export default function HeroDescription({ componentData }: HeroDescriptionProps) {
   return (
     <div className='h-[100px] md:h-[200px] md:max-w-[95%] text-white'>
-      <div className="hidden md:block inter-font text-lg my-6 md:max-w-lg md:my-10">
+      <div className="hidden md:block inter-font text-lg my-6 md:max-w-[80%] md:my-10">
         <TypeAnimation
           preRenderFirstString={true}
           sequence={[

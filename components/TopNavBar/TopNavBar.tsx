@@ -112,6 +112,7 @@ export default function TopNavBar() {
               <Link href="/services/management-consulting" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Management consulting</Link>
               <Link href="/services/policies-and-procedure" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Policies & Procedures</Link>
               <Link href="/services/custom-software-solution" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Custom Software Solutions</Link>
+              <Link href="/services" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- All Services</Link>
             </div>
           </div>
 
@@ -129,6 +130,7 @@ export default function TopNavBar() {
               <Link href="/industries/health-and-community-service" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Health and Community Services</Link>
               <Link href="/industries/retail" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Retail</Link>
               <Link href="/industries/technology" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Technology</Link>
+              <Link href="/industries" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- All Industries</Link>
             </div>
           </div>
 
