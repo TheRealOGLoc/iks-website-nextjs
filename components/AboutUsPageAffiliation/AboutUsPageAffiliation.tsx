@@ -42,15 +42,17 @@ export default function AboutUsPageAffiliation({ componentData }: ShowCaseProps)
         <div className="poppins-font font-bold text-4xl">{componentData.title}</div>
         <div className="max-w-[450px] m-auto my-2">{componentData.description}</div>
       </div>
-      <div className="max-w-[700px] m-auto">
+      <div className="max-w-[500px] m-auto">
         <Slider {...settings} >
           { images.length > 0 ? (
             images.map((image: any, idx: number) => (
               <div key={idx} className="px-2" >
+                <div className="poppins-font font-semibold text-center my-3" >{image.attributes.caption}</div>
                 <img 
                 src={image.attributes.url} 
                 alt={image.attributes.alternativeText || "image" } 
                 title={image.attributes.caption || ""}
+                className="m-auto w-[300px]"
                 />
               </div>
             ))

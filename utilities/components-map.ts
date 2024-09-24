@@ -10,6 +10,7 @@ import HomePageAlign from "../components/HomePageAlign/HomePageAlign";
 import AboutUsPageHero from "../components/AboutUsPageHero/AboutUsPageHero";
 import AboutUsPageShowCase from "../components/AboutUsPageShowCase/AboutUsPageShowCase";
 import AboutUsPageAffiliation from "../components/AboutUsPageAffiliation/AboutUsPageAffiliation";
+import AboutUsPageOurMessage from "@/components/AboutUsPageOurMessage/AboutUsPageOurMessage";
 
 import OurTeamPageHero from "../components/OurTeamPageHero/OurTeamPageHero";
 import OurTeamPageMembers from "../components/OurTeamPageMembers/OurTeamPageMembers";
@@ -59,6 +60,7 @@ import Footer from "../components/Footer/Footer";
 
 export const AboutUsPageComponentMap = {
   'hero': AboutUsPageHero,
+  'our-message': AboutUsPageOurMessage,
   'showcase': AboutUsPageShowCase,
   'affiliation': AboutUsPageAffiliation
 }
