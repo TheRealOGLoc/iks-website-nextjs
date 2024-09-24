@@ -17,16 +17,15 @@ export default function WhyChooseUsCard({ title, description, icon, index }: Why
 
   return (
     <motion.div
-      initial={{ opacity: 0.1, y: 50 }}
+      initial={{ opacity: 0.1 }}
       animate={{
         opacity: isInView ? 1 : 0.1,
-        y: isInView ? 0 : 50
       }}
       transition={{ duration: 0.7, delay: delayTime }}
       ref={showUpRef}
-      className="basis-1/3 max-w-[350px] text-center inter-font p-5 rounded-lg border-[1px] border-gray-100 my-3 md:my-0">
-      <img className="w-[49px] m-[auto]" src={icon.data.attributes.url} alt={icon.data.attributes.alternativeText} title={icon.data.attributes.caption} />
-      <div className="my-3 font-semibold">{title}</div>
+      className="inter-font bg-gray-600 md:hover:bg-gray-500 md:transition mx-3 my-2 p-7 rounded-md text-center max-w-[390px] text-white">
+      <img className="w-[49px] m-[auto] " src={icon.data.attributes.url} alt={icon.data.attributes.alternativeText} title={icon.data.attributes.caption} />
+      <div className="font-bold my-2">{title}</div>
       <div>{description}</div>
     </motion.div>
   )
