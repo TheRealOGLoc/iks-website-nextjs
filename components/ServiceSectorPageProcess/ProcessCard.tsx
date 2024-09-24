@@ -1,6 +1,7 @@
 interface ProcessCardProps {
   title: string,
   description: string,
+  index: number
   icon: any
 }
 

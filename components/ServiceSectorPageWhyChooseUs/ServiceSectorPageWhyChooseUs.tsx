@@ -15,7 +15,7 @@ export default function ServiceSectorPageWhyChooseUs({componentData}: ServiceSec
         <div className="my-5">
           <p className="poppins-font text-5xl font-bold text-gray-400">{componentData.titleLeftPart} <span className="light-blue">{componentData.titleRightPart}</span>?</p>
         </div>
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {
             componentData.card.map((data: any, index: number) => <WhyChooseCard image={data} title={data.title} text={data.description} index={index} key={index} />)
           }

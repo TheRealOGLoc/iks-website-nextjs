@@ -18,7 +18,7 @@ export default function ServiceSectorPageApproach({ componentData }: ServiceSect
         <div className="inter-font max-w-[600px] m-[auto] my-2">{componentData.description}</div>
       </div>
 
-      <div className="flex flex-wrap flex-col md:flex-row justify-between max-w-[1200px] m-[auto] mt-5">
+      <div className="flex flex-wrap flex-col md:flex-row justify-between max-w-[1100px] m-[auto] mt-5">
         {
           componentData.card && componentData.card.map((content: any, index: number) => <ApproachCard title={content.title} index={index} description={content.description} icon={content.icon} key={index} />)
         }

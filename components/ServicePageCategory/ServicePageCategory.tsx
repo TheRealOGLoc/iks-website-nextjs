@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import CategoryModule from "./CategoryModule"
+import { usePathname } from "next/navigation"
 
 interface ServiceCategoryProps {
   componentData: {
@@ -38,7 +39,7 @@ export default function ServicePageCategory({ componentData }: ServiceCategoryPr
         <div className="max-w-[800px] my-5 m-[auto] text-lg font-medium">{componentData.description}</div>
       </div>
       <div className="hidden md:block">
-        <div className="flex m-[auto] my-[30px] justify-between max-w-[1300px]">
+        <div className="flex m-[auto] my-[30px] justify-between max-w-[1200px]">
           {modules && modules.map((module, index) => <CategoryModule title={module.title} description={module.description} key={index} />)}
         </div>
       </div>
