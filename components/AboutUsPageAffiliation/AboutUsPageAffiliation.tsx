@@ -46,8 +46,8 @@ export default function AboutUsPageAffiliation({ componentData }: ShowCaseProps)
         <Slider {...settings} >
           { images.length > 0 ? (
             images.map((image: any, idx: number) => (
-              <div key={idx} className="px-2" >
-                <div className="poppins-font font-semibold text-center my-3" >{image.attributes.caption}</div>
+              <div key={idx} className="overflow-hidden" >
+                <div className="poppins-font text-xl font-semibold text-center my-3" >{image.attributes.caption}</div>
                 <img 
                 src={image.attributes.url} 
                 alt={image.attributes.alternativeText || "image" } 
