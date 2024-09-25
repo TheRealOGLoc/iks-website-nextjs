@@ -21,6 +21,7 @@ export default function HomePageNumbersCard({ data, title, text, plusSign }: Hom
     end: data,
     delay: 0,
     duration: 4,
+    separator: ""
   });
 
   useEffect(() => {
