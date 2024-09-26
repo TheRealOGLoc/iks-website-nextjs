@@ -45,44 +45,44 @@ export default function TopNavBar() {
 
       {/* Desktop Menu Section */}
       <div className="hidden md:flex justify-between items-center space-x-6 mx-10">
-        <Link className="hover:text-blue-600" href="/">Home</Link>
+        <Link className="hover:text-[#70B9DF]" href="/">Home</Link>
 
         <div className="relative group">
-          <Link href="/services" className="group-hover:text-blue-600">
+          <Link href="/services" className="group-hover:text-[#70B9DF]">
             Services
           </Link>
           <div className="absolute left-0 hidden group-hover:block hover:block bg-white shadow-lg rounded w-[250px]">
-            <Link href="/services/management-consulting" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Management consulting</Link>
-            <Link href="/services/policies-and-procedure" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Policies & Procedures</Link>
-            <Link href="/services/custom-software-solution" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Custom Software Solutions</Link>
+            <Link href="/services/management-consulting" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Management consulting</Link>
+            <Link href="/services/policies-and-procedure" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Policies & Procedures</Link>
+            <Link href="/services/custom-software-solution" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Custom Software Solutions</Link>
           </div>
         </div>
 
         <div className="relative group">
-          <Link href="/industries" className="group-hover:text-blue-600">
+          <Link href="/industries" className="group-hover:text-[#70B9DF]">
             Industries
           </Link>
           <div className="absolute hidden group-hover:block hover:block bg-white w-[220px] shadow-lg rounded">
-            <Link href="/industries/beauty-and-aesthetic" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Beauty and Aesthetics</Link>
-            <Link href="/industries/hospitality-and-tourism" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Hospitality</Link>
-            <Link href="/industries/health-and-community-service" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Health and Community Services</Link>
-            <Link href="/industries/retail" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Retail</Link>
-            <Link href="/industries/technology" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Technology</Link>
+            <Link href="/industries/beauty-and-aesthetic" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Beauty and Aesthetics</Link>
+            <Link href="/industries/hospitality-and-tourism" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Hospitality</Link>
+            <Link href="/industries/health-and-community-service" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Health and Community Services</Link>
+            <Link href="/industries/retail" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Retail</Link>
+            <Link href="/industries/technology" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Technology</Link>
           </div>
         </div>
 
-        <Link className="hover:text-blue-600" href="/blogs">Blogs</Link>
-        <Link className="hover:text-blue-600" href="/case-studies">Case Studies</Link>
+        <Link className="hover:text-[#70B9DF]" href="/blogs">Blogs</Link>
+        <Link className="hover:text-[#70B9DF]" href="/case-studies">Case Studies</Link>
 
         <div className="relative group">
-          <Link href="/about-us" className="group-hover:text-blue-600">
+          <Link href="/about-us" className="group-hover:text-[#70B9DF]">
             About Us
           </Link>
           <div className="absolute text-right left-[-70px] hidden group-hover:block w-[160px] hover:block bg-white shadow-lg rounded">
-            <Link href="/about-us" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">About Us</Link>
-            <Link href="/our-team" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Our Team</Link>
-            <Link href="/testimonials" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Testimonials</Link>
-            <Link href="/privacy-policy" className="block px-4 py-2 hover:bg-blue-500 hover:text-white transition">Privacy Policy</Link>
+            <Link href="/about-us" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">About Us</Link>
+            <Link href="/our-team" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Our Team</Link>
+            <Link href="/testimonials" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Testimonials</Link>
+            <Link href="/privacy-policy" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Privacy Policy</Link>
           </div>
         </div>
       </div>
