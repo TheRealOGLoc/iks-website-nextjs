@@ -2,7 +2,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 interface HomePageClientsProps {
   componentData: {
@@ -24,22 +25,38 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
   const firstRow = componentData.firstRow.data || [];
   const secondRow = componentData.secondRow.data || [];
 
+  const firstRowRef = useRef<Slider | null>(null);
+  const secondRowRef = useRef<Slider | null>(null);
+  const viewRef = useRef(null);
+  const inView = useInView(viewRef);
+
+  useEffect(() => {
+    setTimeout(startPlay, 3000)
+  }, [inView]);
+
+  const startPlay = () => {
+    if (inView) {
+      firstRowRef.current?.slickPlay();
+      secondRowRef.current?.slickPlay();
+    } 
+  }
+
   // Slider settings for first row (left to right)
   const settingsLTR = {
     dots: false,
     infinite: true,
-    speed: 4000,
+    speed: 3000,
     pauseOnHover: false,
-    slidesToShow: 6, // Default for desktop (5 logos per row)
+    slidesToShow: 8,
     slidesToScroll: 3,
-    autoplay: true,
-    autoplaySpeed: 0, // Slide every 3 seconds
+    autoplay: false, // autoplay
+    autoplaySpeed: 0,
     responsive: [
       {
         breakpoint: 768, // For mobile view
         settings: {
-          slidesToShow: 3, // Show 4 logos per row on mobile
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: true,
         },
       },
@@ -63,9 +80,9 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
         </div>
       </div>
 
-      <div className="my-[100px]">
+      <motion.div ref={viewRef} className="my-[100px]">
         {/* First row (left to right) */}
-        <Slider {...settingsLTR}>
+        <Slider ref={firstRowRef} {...settingsLTR}>
           {firstRow.length > 0 ? (
             firstRow.map((logo, idx) => (
               <div key={idx} className="px-2">
@@ -78,12 +95,12 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
               </div>
             ))
           ) : (
-            <p>No logos to display</p>
+            ""
           )}
         </Slider>
 
         {/* Second row (right to left) */}
-        <Slider {...settingsRTL}>
+        <Slider ref={secondRowRef} {...settingsRTL}>
           {secondRow.length > 0 ? (
             secondRow.map((logo, idx) => (
               <div key={idx} className="px-2">
@@ -96,10 +113,10 @@ export default function HomePageClients({ componentData }: HomePageClientsProps)
               </div>
             ))
           ) : (
-            <p>No logos to display</p>
+            ""
           )}
         </Slider>
-      </div>
+      </motion.div>
     </div>
   );
 }
