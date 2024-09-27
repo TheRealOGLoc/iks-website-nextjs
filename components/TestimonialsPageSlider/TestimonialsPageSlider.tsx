@@ -46,14 +46,15 @@ export default function TestimonialsPageSlider({ componentData }: TestimonialsPr
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
+              className="h-[380px] md:h-[250px]"
             >
-              <h3 className="text-lg sm:text-2xl font-semibold mb-1"> {/* Responsive text size */}
+              <div className="text-lg sm:text-2xl font-semibold mb-1"> {/* Responsive text size */}
                 {testimonials[activeIndex].name}
-              </h3>
-              <p className="text-sm sm:text-base mb-2 sm:mb-4"> {/* Adjust margin for mobile */}
+              </div>
+              <p className="text-base sm:text-base mb-2 sm:mb-4"> {/* Adjust margin for mobile */}
                 {testimonials[activeIndex].titleAndCompanyName}
               </p>
-              <p className="text-sm sm:text-lg italic max-w-[800px] mx-auto"> {/* Responsive text size */}
+              <p className="text-base sm:text-lg italic max-w-[800px] mx-auto"> {/* Responsive text size */}
                 {testimonials[activeIndex].comment}
               </p>
             </motion.div>

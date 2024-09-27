@@ -14,7 +14,7 @@ interface OurMessageProps {
 export default function AboutUsPageOurMessage({ componentData }: OurMessageProps) {
   return (
 
-    <div className="max-w-[900px] mx-auto text-left my-6 inter-font"> {/* Add padding for mobile */}
+    <div className="max-w-[900px] mx-auto text-left my-20 inter-font"> {/* Add padding for mobile */}
       <div className="p-5">
         <div>
           <h2 className="text-4xl text-center font-semibold mb-1 light-blue poppins-font"> {/* Responsive text size */}
