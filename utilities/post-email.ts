@@ -3,6 +3,7 @@ interface Message {
     name: string,
     companyName: string,
     phoneNumber: string,
+    industries: string,
     email: string,
     message: string,
   }

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { AddSubscribe } from '@/utilities/post-email';
+import axios from 'axios';
 import Link from "next/link";
 
 export default function SubscribeCard() {
@@ -28,7 +28,8 @@ export default function SubscribeCard() {
     setError(null);
 
     try {
-      const response = await AddSubscribe({email});
+      const response = await axios.post("/api/subscribe",{email})
+      // const response = await AddSubscribe({email});
 
       if (response.status === 200 || response.statusText === "OK") {
         setSuccess("You have subscribed!");

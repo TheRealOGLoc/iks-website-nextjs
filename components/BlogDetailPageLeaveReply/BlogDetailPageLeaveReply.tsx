@@ -1,7 +1,7 @@
 "use client"
-import { PostComment } from "@/utilities/post-comment"
 import { useState } from "react"
 import { usePathname } from 'next/navigation'
+import axios from "axios"
 
 interface BlogDetailPageLeaveReplyProps {
   componentData: {
@@ -70,7 +70,8 @@ export default function BlogDetailPageLeaveReply({ componentData }: BlogDetailPa
     }
 
     try {
-      const response = await PostComment({ comment: inputValue })
+      // const response = await PostComment({ comment: inputValue })
+      const response = await axios.post("/api/comment", inputValue)
       if (response.status === 200 || response.statusText === "OK") {
         setSubmitted(true)
       } else {

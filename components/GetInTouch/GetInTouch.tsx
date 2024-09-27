@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
-import { SendMessage } from '@/utilities/post-email';
 import GetInTouchImage from "@/public/image/GetInTouch.png"
+import axios from 'axios';
 
 interface GetInTouch {
   buttonText: string;
@@ -81,7 +81,8 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
     setError(null);
 
     try {
-      const response = await SendMessage({ info });
+      const response = await axios.post("/api/send", info)
+      // const response = await SendMessage({ info });
 
       if (response.status === 200 || response.statusText === "OK") {
         setMessageSent(true);
@@ -125,9 +126,6 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                 <div>
                   <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
                   <form className="space-y-4 text-black" onSubmit={handleSubmit}>
-                    {/* error message */}
-                    {error && <div className="text-red-600">{error}</div>}
-                    {success && <div className="text-green-400">{success}</div>}
                     <input
                       type="text"
                       name='name'
@@ -180,6 +178,9 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                       value={"Submit"}
                       className="bg-[#1d68ae] text-white py-2 px-4 cursor-pointer w-[200px]"
                     />
+                    {/* error message */}
+                    {error && <span className="text-red-600">{error}</span>}
+                    {success && <span className="text-green-400">{success}</span>}
                   </form>
                 </div>
 

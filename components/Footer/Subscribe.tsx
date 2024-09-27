@@ -1,5 +1,5 @@
 "use client"
-import { AddSubscribe } from '@/utilities/post-email';
+import axios from 'axios';
 import React, { useState } from 'react';
 
 interface SubscribeProps {
@@ -34,7 +34,8 @@ export default function Subscribe({ componentData }: SubscribeProps) {
     setError(null);
 
     try {
-      const response = await AddSubscribe({email});
+      const response = await axios.post("/api/subscribe",{email})
+      // const response = await AddSubscribe({email});
 
       if (response.status === 200 || response.statusText === "OK") {
         setSuccess("You have subscribed!");
