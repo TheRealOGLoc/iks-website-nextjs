@@ -17,6 +17,7 @@ interface BlogDetailPageLeaveReplyProps {
   }
 }
 
+
 interface Comment {
   name: string,
   email: string,
