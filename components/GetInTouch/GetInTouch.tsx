@@ -114,7 +114,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
               &#x2715; {/* Close button */}
             </button>
             <div className='md:flex md:items-center'>
-              <div className='hidden md:block w-[1200px] md:h-[750px]'>
+              <div className='hidden md:block w-[1200px] md:h-[700px]'>
                 <Image
                   src={GetInTouchImage}
                   alt=""
@@ -122,7 +122,7 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
                 />
               </div>
 
-              <div className='md:h-[750px] p-[30px] md:p-[80px]'>
+              <div className='md:h-[700px] p-[30px]'>
                 <div>
                   <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
                   <form className="space-y-4 text-black" onSubmit={handleSubmit}>
