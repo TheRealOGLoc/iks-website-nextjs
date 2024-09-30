@@ -39,12 +39,12 @@ export default function ServicePageCategory({ componentData }: ServiceCategoryPr
         <div className="max-w-[800px] my-5 m-[auto] text-lg font-medium">{componentData.description}</div>
       </div>
       <div className="hidden md:block">
-        <div className="flex m-[auto] my-[30px] justify-between max-w-[1200px]">
+        <div className="flex m-[auto] mt-[30px] mb-[20px] justify-between max-w-[1200px]">
           {modules && modules.map((module, index) => <CategoryModule title={module.title} description={module.description} key={index} />)}
         </div>
       </div>
       <div>
-      <Link className="rounded-lg p-3 text-white bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 px-5 block w-[145px] mx-auto" href={componentData.buttonUrl} >{componentData.buttonText}</Link>
+        <Link className="rounded-lg p-3 text-white bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 px-5 block w-[145px] mx-auto" href={componentData.buttonUrl} >{componentData.buttonText}</Link>
       </div>
     </div>
   )
