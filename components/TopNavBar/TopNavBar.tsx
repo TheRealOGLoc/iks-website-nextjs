@@ -82,7 +82,6 @@ export default function TopNavBar() {
             <Link href="/about-us" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">About Us</Link>
             <Link href="/our-team" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Our Team</Link>
             <Link href="/testimonials" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Testimonials</Link>
-            <Link href="/privacy-policy" className="block px-4 py-2 hover:bg-[#70B9DF] hover:text-white transition">Privacy Policy</Link>
           </div>
         </div>
       </div>
@@ -149,7 +148,6 @@ export default function TopNavBar() {
               <Link href="/about-us" className="block mt-2 text-lg" onClick={() => setIsMobileMenuOpen(false)}>- About Us</Link>
               <Link href="/our-team" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Our Team</Link>
               <Link href="/testimonials" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Testimonials</Link>
-              <Link href="/privacy-policy" className="block text-lg" onClick={() => setIsMobileMenuOpen(false)}>- Privacy Policy</Link>
             </div>
           </div>
         </div>
