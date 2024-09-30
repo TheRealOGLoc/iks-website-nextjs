@@ -6,11 +6,10 @@ import { motion, useInView } from "framer-motion";
 interface HomePageNumbersCardProps {
   data: number,
   title: string,
-  text: string,
   plusSign: boolean
 }
 
-export default function HomePageNumbersCard({ data, title, text, plusSign }: HomePageNumbersCardProps) {
+export default function HomePageNumbersCard({ data, title, plusSign }: HomePageNumbersCardProps) {
 
   const showUpRef = useRef(null)
   const countUpRef = useRef(null);
@@ -44,7 +43,6 @@ export default function HomePageNumbersCard({ data, title, text, plusSign }: Hom
         <span>{plusSign ? "+" : ""}</span>
       </div>
       <div className="poppins-font font-semibold">{title}</div>
-      <div>{text}</div>
     </motion.div>
   );
 }
