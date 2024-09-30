@@ -44,7 +44,7 @@ export default function ServicePageCategory({ componentData }: ServiceCategoryPr
         </div>
       </div>
       <div>
-        <Link className="rounded-lg p-3 text-white bg-blue-600 bg-opacity-80 md:bg-opacity-60 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 px-5 block w-[145px] mx-auto" href={componentData.buttonUrl} >{componentData.buttonText}</Link>
+        <Link className="rounded-lg p-3 text-white bg-[#00418A] bg-opacity-80 md:bg-opacity-70 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 px-5 block w-[145px] mx-auto" href={componentData.buttonUrl} >{componentData.buttonText}</Link>
       </div>
     </div>
   )
