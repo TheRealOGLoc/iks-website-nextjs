@@ -49,31 +49,31 @@ export default function Footer({ componentData }: FooterProps) {
 
         {/* Menu Links */}
         <div className="hidden md:block flex-1 poppins-font">
-          <div className="text-lg font-bold text-white">{componentData.menuLabel}</div>
+          <div className="text-lg font-bold text-white">Menu</div>
           <ul className="mt-4 space-y-2">
             <li>
               <Link href="/" className="hover:text-white transition">
-                {componentData.menuHome}
+                Home
               </Link>
             </li>
             <li>
               <Link href="/services" className="hover:text-white transition">
-                {componentData.menuServices}
+                Services
               </Link>
             </li>
             <li>
               <Link href="/industries" className="hover:text-white transition">
-                {componentData.menuIndustries}
+                Industries
               </Link>
             </li>
             <li>
               <Link href="/blogs" className="hover:text-white transition">
-                {componentData.menuBlogs}
+                Blogs
               </Link>
             </li>
             <li>
               <Link href="/case-studies" className="hover:text-white transition">
-                {componentData.menuCaseStudies}
+                Case Studies
               </Link>
             </li>
           </ul>
@@ -81,26 +81,26 @@ export default function Footer({ componentData }: FooterProps) {
 
         {/* Company Links */}
         <div className="flex-1 poppins-font">
-          <div className="text-lg font-bold text-white">{componentData.companyLabel}</div>
+          <div className="text-lg font-bold text-white">Company</div>
           <ul className="mt-4 space-y-2">
             <li>
               <Link href="/about-us" className="hover:text-white transition">
-                {componentData.companyAboutUs}
+                About Us
               </Link>
             </li>
             <li>
               <Link href="/our-team" className="hover:text-white transition">
-                {componentData.companyOurTeam}
+                Our Team
               </Link>
             </li>
             <li>
               <Link href="/testimonials" className="hover:text-white transition">
-                {componentData.companyTestimonials}
+                Testimonials
               </Link>
             </li>
             <li>
               <Link href="/privacy-policy" className="hover:text-white transition">
-                {componentData.companyPrivacyPolicy}
+                Privacy Policy
               </Link>
             </li>
           </ul>
@@ -108,16 +108,16 @@ export default function Footer({ componentData }: FooterProps) {
 
         {/* Contact Information */}
         <div className="flex-1 poppins-font">
-          <div className="text-lg font-bold text-white">{componentData.locationLabel}</div>
+          <div className="text-lg font-bold text-white">Location</div>
           <Link href={"https://goo.gl/maps/XfcxXc8ttaiMrEcm7"}>
-            <p>{componentData.locationAddressLineOne}</p>
-            <p>{componentData.locationAddressLineTwo}</p>
+            <p>SYDNEY, AUSTRALIA</p>
+            <p>Level 14, 32 Smith St, Parramatta NSW 2150</p>
           </Link>
-          <div className="text-lg font-bold text-white mt-2">{componentData.phoneLabel}</div>
-          <p>{componentData.phoneNumber}</p>
+          <div className="text-lg font-bold text-white mt-2">Phone</div>
+          <p>02 9139 8874</p>
 
-          <div className="text-lg font-bold text-white mt-2">{componentData.mailLabel}</div>
-          <p>{componentData.mailAddress}</p>
+          <div className="text-lg font-bold text-white mt-2">Mail</div>
+          <p>info@infinikeysolutions.com.au</p>
         </div>
       </div>
     </footer>
