@@ -29,8 +29,10 @@ export async function generateMetadata({ params }: Params):Promise<Metadata | nu
       },
     },
   };
-
-  const SEOData = await GetSeoData(SEOquery, contentType);
+  const renderConfig = {
+    next: { revalidate: 10 }
+  }
+  const SEOData = await GetSeoData(SEOquery, contentType, renderConfig);
   if (SEOData) {
     const metaData = GenerateMetaData(SEOData)
     return metaData
