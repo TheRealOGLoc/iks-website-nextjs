@@ -42,7 +42,7 @@ export default async function BlogsPage() {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const blogsData = await GetData(query, contentType, renderConfig);
 

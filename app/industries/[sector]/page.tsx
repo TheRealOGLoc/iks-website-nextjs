@@ -28,7 +28,7 @@ export default async function IndustrySectorPage({ params }: Params) {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const industrySectorData = await GetData(query, contentType, renderConfig);
   return (

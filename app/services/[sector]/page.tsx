@@ -28,7 +28,7 @@ export default async function ServiceSectorPage({ params }: Params) {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const serviceSectorData = await GetData(query, contentType, renderConfig);
   return (
