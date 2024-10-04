@@ -5,7 +5,6 @@ import { GetData, GetSeoData } from '@/utilities/get-components-data'
 import { Metadata } from 'next';
 import { GenerateMetaData } from '@/utilities/generate-meta-data';
 
-
 interface Params {
   params: {
     sector: string
