@@ -36,10 +36,10 @@
 }
 
 .mobile-view-menu-bg {
-  background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(112,185,223,1) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(112, 185, 223, 1) 100%);
 }
 
-.rc-anchor-pt {
-  display: none;
+.grecaptcha-badge {
+  visibility: hidden;
 }
