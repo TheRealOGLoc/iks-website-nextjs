@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import GetInTouchImage from "@/public/image/GetInTouch.png"
 import axios from 'axios';
+import GoogleCaptchaWrapper from '../GoogleCaptchaWrapper/GoogleCaptchaWrapper';
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 interface GetInTouch {
   buttonText: string;
@@ -12,7 +14,7 @@ interface GetInTouch {
 }
 
 export default function GetInTouch({ buttonText }: GetInTouch) {
-
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [openMenu, setOpenMenu] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
@@ -80,6 +82,30 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
 
     setError(null);
 
+    if (!executeRecaptcha) {
+      setError("Recaptcha not found")
+      return;
+    }
+
+    const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
+
+    const googleResponse = await axios({
+      method: "post",
+      url: "/api/recaptchaSubmit",
+      data: {
+        gRecaptchaToken,
+      },
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (googleResponse?.data?.success !== true) {
+      setError("Failed to verify recaptcha.")
+      return
+    }
+
     try {
       const response = await axios.post("/api/send", info)
       // const response = await SendMessage({ info });
@@ -99,117 +125,117 @@ export default function GetInTouch({ buttonText }: GetInTouch) {
   }
 
   return (
-    <div className='inter-font'>
-      <button
-        onClick={() => _handleOpenClick()}
-        className="mt-9 md:mt-0 poppins-font bg-[#1d68ae] bg-opacity-80 md:bg-opacity-80 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
-      >{buttonText} →</button>
+      <div className='inter-font'>
+        <button
+          onClick={() => _handleOpenClick()}
+          className="mt-9 md:mt-0 poppins-font bg-[#1d68ae] bg-opacity-80 md:bg-opacity-80 no-underline hover:underline-offset-4 hover:underline hover:bg-opacity-100 transition duration-200 text-white px-6 py-3 text-lg w-[190px]"
+        >{buttonText} →</button>
 
-      {
-        openMenu &&
-        <div className="fixed inset-0 z-50 bg-gray-300 bg-opacity-75 md:flex justify-center items-center shadow-lg">
-          {/* Full-screen overlay */}
-          <div className="relative mt-[50px] md:mt-0 bg-white shadow-lg max-w-[1000px] w-full">
-            <button onClick={() => _handleCloseClick()} className="absolute top-4 right-4 text-gray-200 hover:text-gray-900 w-7 h-7 bg-gray-600">
-              &#x2715; {/* Close button */}
-            </button>
-            <div className='md:flex md:items-center'>
-              <div className='hidden md:block w-[1200px] md:h-[700px]'>
-                <Image
-                  src={GetInTouchImage}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className='md:h-[700px] p-[30px]'>
-                <div>
-                  <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
-                  <form className="space-y-4 text-black" onSubmit={handleSubmit}>
-                    <input
-                      type="text"
-                      name='name'
-                      placeholder='Name *'
-                      value={info.name}
-                      onChange={handleChange}
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
-                    />
-                    <input
-                      type="text"
-                      name='companyName'
-                      placeholder='Company Name'
-                      value={info.companyName}
-                      onChange={handleChange}
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
-                    />
-                    <input
-                      type="text"
-                      name='industries'
-                      placeholder='Your Industry'
-                      value={info.industries}
-                      onChange={handleChange}
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
-                    />
-                    <input
-                      type="text"
-                      name='phoneNumber'
-                      placeholder='Phone Number'
-                      value={info.phoneNumber}
-                      onChange={handleChange}
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
-                    />
-                    <input
-                      type="email"
-                      name='email'
-                      placeholder='Email *'
-                      value={info.email}
-                      onChange={handleChange}
-                      className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
-                    />
-                    <textarea
-                      name="message"
-                      placeholder='Please share your requirements or Message us'
-                      value={info.message}
-                      onChange={handleChange}
-                      className="w-full p-2 border-[1px] resize-none border-gray-800 poppins-font">
-                    </textarea>
-                    <input
-                      type="submit"
-                      value={"Submit"}
-                      className="bg-[#1d68ae] text-white py-2 px-4 cursor-pointer w-[200px]"
-                    />
-                    {/* error message */}
-                    {error && <span className="text-red-600">{error}</span>}
-                    {success && <span className="text-green-400">{success}</span>}
-                  </form>
+        {
+          openMenu &&
+          <div className="fixed inset-0 z-50 bg-gray-300 bg-opacity-75 md:flex justify-center items-center shadow-lg">
+            {/* Full-screen overlay */}
+            <div className="relative mt-[50px] md:mt-0 bg-white shadow-lg max-w-[1000px] w-full">
+              <button onClick={() => _handleCloseClick()} className="absolute top-4 right-4 text-gray-200 hover:text-gray-900 w-7 h-7 bg-gray-600">
+                &#x2715; {/* Close button */}
+              </button>
+              <div className='md:flex md:items-center'>
+                <div className='hidden md:block w-[1200px] md:h-[700px]'>
+                  <Image
+                    src={GetInTouchImage}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
-                <div className='h-[1px] bg-gray-600 mt-5'></div>
-
-                <div className="mt-3 md:mt-8 flex flex-col md:flex-row text-black">
-                  <div className="hidden md:block text-center">
-                    <div className="text-lg font-bold">Find Us</div>
-                    <Link className='hover:text-gray-600 transition' href={googleUrl}>
-                      <p>SYDNEY, AUSTRALIA</p>
-                      <p>Level 14, 32 Smith Street, Parramatta NSW 2150</p>
-                    </Link>
-                  </div>
+                <div className='md:h-[700px] p-[30px]'>
                   <div>
-                    <div className="text-center mt-4 md:mt-0">
-                      <div className="text-lg font-bold">Call Us</div>
-                      <p>02 9139 8874</p>
+                    <div className="text-4xl font-extralight mt-[0px] mb-[30px] text-left text-black poppins-font">Get In Touch</div>
+                    <form className="space-y-4 text-black" onSubmit={handleSubmit}>
+                      <input
+                        type="text"
+                        name='name'
+                        placeholder='Name *'
+                        value={info.name}
+                        onChange={handleChange}
+                        className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                      />
+                      <input
+                        type="text"
+                        name='companyName'
+                        placeholder='Company Name'
+                        value={info.companyName}
+                        onChange={handleChange}
+                        className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                      />
+                      <input
+                        type="text"
+                        name='industries'
+                        placeholder='Your Industry'
+                        value={info.industries}
+                        onChange={handleChange}
+                        className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                      />
+                      <input
+                        type="text"
+                        name='phoneNumber'
+                        placeholder='Phone Number'
+                        value={info.phoneNumber}
+                        onChange={handleChange}
+                        className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                      />
+                      <input
+                        type="email"
+                        name='email'
+                        placeholder='Email *'
+                        value={info.email}
+                        onChange={handleChange}
+                        className="w-full p-2 border-b-[1px] border-gray-800 poppins-font"
+                      />
+                      <textarea
+                        name="message"
+                        placeholder='Please share your requirements or Message us'
+                        value={info.message}
+                        onChange={handleChange}
+                        className="w-full p-2 border-[1px] resize-none border-gray-800 poppins-font">
+                      </textarea>
+                      <input
+                        type="submit"
+                        value={"Submit"}
+                        className="bg-[#1d68ae] text-white py-2 px-4 cursor-pointer w-[200px]"
+                      />
+                      {/* error message */}
+                      {error && <span className="text-red-600">{error}</span>}
+                      {success && <span className="text-green-400">{success}</span>}
+                    </form>
+                  </div>
+
+                  <div className='h-[1px] bg-gray-600 mt-5'></div>
+
+                  <div className="mt-3 md:mt-8 flex flex-col md:flex-row text-black">
+                    <div className="hidden md:block text-center">
+                      <div className="text-lg font-bold">Find Us</div>
+                      <Link className='hover:text-gray-600 transition' href={googleUrl}>
+                        <p>SYDNEY, AUSTRALIA</p>
+                        <p>Level 14, 32 Smith Street, Parramatta NSW 2150</p>
+                      </Link>
                     </div>
-                    <div className="text-center mt-4">
-                      <div className="text-lg font-bold">Email Us</div>
-                      <p>info@infinikeysolutions.com.au</p>
+                    <div>
+                      <div className="text-center mt-4 md:mt-0">
+                        <div className="text-lg font-bold">Call Us</div>
+                        <p>02 9139 8874</p>
+                      </div>
+                      <div className="text-center mt-4">
+                        <div className="text-lg font-bold">Email Us</div>
+                        <p>info@infinikeysolutions.com.au</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      }
-    </div>
+        }
+      </div>
   )
 }

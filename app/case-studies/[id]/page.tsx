@@ -20,7 +20,7 @@ export default async function CaseStudyDetailPage({ params }: Params) {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const caseStudyDetailData = await GetData(query, contentType, renderConfig);
   return (

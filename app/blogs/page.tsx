@@ -22,8 +22,10 @@ export async function generateMetadata(): Promise<Metadata | null> {
       },
     },
   };
-
-  const SEOData = await GetSeoData(SEOquery, contentType);
+  const renderConfig = {
+    next: { revalidate: 10 }
+  }
+  const SEOData = await GetSeoData(SEOquery, contentType, renderConfig);
   if (SEOData) {
     const metaData = GenerateMetaData(SEOData)
     return metaData
@@ -42,7 +44,7 @@ export default async function BlogsPage() {
     }
   }
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const blogsData = await GetData(query, contentType, renderConfig);
 

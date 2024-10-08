@@ -21,7 +21,7 @@ export default async function BlogDetailPage({ params }: Params) {
   }
 
   const renderConfig = {
-    next: { revalidate: 60 }
+    next: { revalidate: 10 }
   }
   const blogDetailData = await GetData(query, contentType, renderConfig);
   // const util = require("util")
