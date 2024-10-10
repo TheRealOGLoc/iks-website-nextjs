@@ -25,10 +25,10 @@ export default function ServiceSectorPageServices({ componentData }: ServiceSect
       {
         softwarePathname ?
           <div className='flex justify-between flex-col md:flex-row max-w-[800px] m-auto my-5'>
-            {componentData.card && componentData.card.map((content: any, index: number) => <ServiceCard title={content.title} descriptionOne={content.descriptionOne} descriptionThree={content.descriptionThree} descriptionTwo={content.descriptionTwo} key={index} />)}
+            {componentData.card && componentData.card.map((content: any, index: number) => <ServiceCard title={content.title} descriptionOne={content.descriptionOne} descriptionThree={content.descriptionThree} descriptionTwo={content.descriptionTwo} image={content.image} key={index} />)}
           </div> :
           <div className='flex justify-between flex-col md:flex-row max-w-[1200px] m-auto my-5'>
-            {componentData.card && componentData.card.map((content: any, index: number) => <ServiceCard title={content.title} descriptionOne={content.descriptionOne} descriptionThree={content.descriptionThree} descriptionTwo={content.descriptionTwo} key={index} />)}
+            {componentData.card && componentData.card.map((content: any, index: number) => <ServiceCard title={content.title} descriptionOne={content.descriptionOne} descriptionThree={content.descriptionThree} descriptionTwo={content.descriptionTwo} image={content.image} key={index} />)}
           </div>
       }
 
