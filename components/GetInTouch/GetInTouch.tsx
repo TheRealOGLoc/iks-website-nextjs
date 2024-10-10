@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import GetInTouchImage from "@/public/image/GetInTouch.png"
 import axios from 'axios';
-import GoogleCaptchaWrapper from '../GoogleCaptchaWrapper/GoogleCaptchaWrapper';
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 interface GetInTouch {
